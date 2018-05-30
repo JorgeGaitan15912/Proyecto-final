@@ -13,8 +13,8 @@ public:
     ~Persongraf();
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void actualizar(float dt);
     Personaje *getpersonaje();
-    void actualizar();
 private:
     Personaje *capucho;
 };

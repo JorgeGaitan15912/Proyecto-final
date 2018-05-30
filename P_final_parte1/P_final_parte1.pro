@@ -30,7 +30,8 @@ SOURCES += \
     persongraf.cpp \
     item.cpp \
     itemgraf.cpp \
-    jugabilidad.cpp
+    jugabilidad.cpp \
+    menu.cpp
 
 HEADERS += \
         juego.h \
@@ -38,10 +39,12 @@ HEADERS += \
     persongraf.h \
     item.h \
     itemgraf.h \
-    jugabilidad.h
+    jugabilidad.h \
+    menu.h
 
 FORMS += \
-        juego.ui
+        juego.ui \
+    menu.ui
 
 RESOURCES += \
     imagenes.qrc

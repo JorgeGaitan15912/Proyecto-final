@@ -1,6 +1,6 @@
 #ifndef ITEM_H
 #define ITEM_H
-#define DT 0.02
+
 #include <math.h>
 
 class item
@@ -26,3 +26,4 @@ private:
 };
 
 #endif // ITEM_H
+

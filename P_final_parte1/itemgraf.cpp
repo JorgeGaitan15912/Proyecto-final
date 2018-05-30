@@ -8,6 +8,8 @@ itemgraf::itemgraf()
 itemgraf::itemgraf(float x, float y)
 {
     obstaculo=new item(x,y);
+    pixmap.load(":/Imagenes videojuego/Aviones/Avión2.png");
+    setPos(x,y);
 }
 
 itemgraf::~itemgraf()
@@ -18,14 +20,17 @@ itemgraf::~itemgraf()
 
 QRectF itemgraf::boundingRect() const
 {
-    return QRectF(15,0,30,30);
-    //return QRectF(15,0,30,30); PREGUNTAR COMO PONER DIFERENTES IMAGENES
+    return QRectF(15,0,200,100);
 }
 
+void itemgraf::pixCac()
+{
+    pixmap.load(":/Imagenes videojuego/Trampolines/Trampolin1.png");
+}
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QPixmap pixmap;
-    pixmap.load(":/imagenes/cactus2.png");
+//    QPixmap pixmap;
+    //QRectF trampolin(0,0,200,100);
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 
@@ -38,6 +43,7 @@ item *itemgraf::getbonus()
 {
     return bonus;
 }
+
 
 void itemgraf::actualizar(float dt)
 {

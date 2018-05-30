@@ -6,8 +6,8 @@ Personaje::Personaje(float x, float y)
 {
     px=x;
     py=y;
-    vx=70;
-    vy=80;
+    vx=100;
+    vy=10;
 }
 
 Personaje::~Personaje()
@@ -21,24 +21,25 @@ void Personaje::inicial()
      ax=0;
 //     px=0;
 //     py=20;
-     vx=200;
-     vy=200;
+//     vx=200;
+//     vy=200;
 
 }
 
 void Personaje::calcularVel(float dt)
-{
-    vx = vx + ax*DT;
-    vy = vy + ay*DT;
+{   ax=0;
+    ay=-9.8;
+    vx = vx + ax*dt;
+    vy = vy + ay*dt;
 }
-void Personaje::actualizar()
+void Personaje::actualizar(float dt)
 {
-    calcularVel(DT);
+    calcularVel(dt);
 
-    px = px + vx*DT + (1/2)*ax*pow(DT,2);
-    py = py + vy*DT + (1/2)*ay*pow(DT,2);
-    cout<<"posicion en y "<<py;
-    cout<<"posicion en x "<<px;
+    px += vx*dt + (1/2)*ax*pow(dt,2);
+    py +=vy*dt + (1/2)*ay*pow(dt,2);
+    cout<<"posicion en y "<<py<<endl;
+    cout<<"posicion en x "<<px<<endl;
 }
 
 
@@ -102,5 +103,6 @@ void Personaje::setPx(float value)
 {
     px = value;
 }
+
 
 

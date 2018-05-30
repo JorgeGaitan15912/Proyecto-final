@@ -1,7 +1,6 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 #include <math.h>
-#define DT 0.02
 
 class Personaje
 {
@@ -9,7 +8,7 @@ public:
     Personaje(float x, float y);
     ~Personaje();
     void inicial();
-    void actualizar();
+    void actualizar(float dt);
     void calcularVel(float dt);
 
     float getVy() const;

@@ -4,7 +4,10 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
+#include <iostream>
 #include "item.h"
+
+using namespace std;
 
 class itemgraf : public QGraphicsItem
 {
@@ -16,6 +19,8 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     item *getItem();
     item *getbonus();
+    void pixCac();
+    QPixmap pixmap;
     void actualizar(float dt);
 
 private:
