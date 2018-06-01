@@ -1,53 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>Imagenes videojuego/Aviones/Avión.png</file>
-        <file>Imagenes videojuego/Aviones/Avión2.png</file>
-        <file>Imagenes videojuego/Aviones/Avión3.png</file>
-        <file>Imagenes videojuego/Aviones/Globo.png</file>
-        <file>Imagenes videojuego/Aviones/Globo2.png</file>
-        <file>Imagenes videojuego/Aviones/Helicoptero.png</file>
-        <file>Imagenes videojuego/Aviones/Helicoptero2.png</file>
-        <file>Imagenes videojuego/Aviones/Jet.png</file>
-        <file>Imagenes videojuego/Aviones/Nave.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho2.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho3.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho4.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho5.png</file>
-        <file>Imagenes videojuego/Capucho/Cacupho6.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete1.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete2.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete3.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete4.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete5.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete6.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete7.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete8.png</file>
-        <file>Imagenes videojuego/Cohetes/Cohete9.png</file>
-        <file>Imagenes videojuego/Fondo/Fondo papel.png</file>
-        <file>Imagenes videojuego/Muros/Textura1.png</file>
-        <file>Imagenes videojuego/Muros/Textura2.png</file>
-        <file>Imagenes videojuego/Muros/Textura3.png</file>
-        <file>Imagenes videojuego/Muros/Textura4.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro1.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro10.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro11.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro12.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro13.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro2.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro3.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro4.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro5.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro6.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro7.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro8.png</file>
-        <file>Imagenes videojuego/Pajaros/Pajaro9.png</file>
-        <file>Imagenes videojuego/Trampolines/Trampolin1.png</file>
-        <file>Imagenes videojuego/Trampolines/Trampolin2.png</file>
-        <file>Imagenes videojuego/Trampolines/Trampolin3.png</file>
-        <file>Imagenes videojuego/Trampolines/Trampolines.cdr</file>
-        <file>Imagenes videojuego/Ventiladores/Ventilador1.png</file>
-        <file>Imagenes videojuego/Ventiladores/Ventilador2.png</file>
-        <file>Imagenes videojuego/Ventiladores/Ventilador3.png</file>
+        <file>Aviones.png</file>
+        <file>Cacupho2.png</file>
+        <file>Cacupho4.png</file>
+        <file>T3.png</file>
     </qresource>
 </RCC>

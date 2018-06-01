@@ -18,6 +18,7 @@ menu::~menu()
 void menu::on_pushButton_clicked()
 {
     juego1->show();
+    juego1->setDosjugadores(false);
     this->close();
 }
 
@@ -39,4 +40,12 @@ void menu::on_cargarButton_clicked()
 
     lectura.close();
     escritura.close();
+}
+
+void menu::on_multiButton_2_clicked()
+{
+    juego1->show();
+    juego1->setDosjugadores(true);
+    qDebug("Hola");
+    this->close();
 }

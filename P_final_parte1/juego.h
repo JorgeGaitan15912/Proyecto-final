@@ -13,7 +13,10 @@
 #include <stdio.h>
 #include <time.h>
 
+#include <QDebug>
+#include <QApplication>
 
+#include "ui_juego.h"
 #include "persongraf.h"
 #include "personaje.h"
 #include "itemgraf.h"
@@ -39,6 +42,9 @@ public:
     ~Juego();
     float personx;
     float persony;
+    void multijugador();
+
+    void setDosjugadores(bool value);
 
 private slots:
     void on_pushButton_clicked();
@@ -49,15 +55,27 @@ private slots:
     void on_pushButton_3_clicked();
     void keyPressEvent(QKeyEvent* event);
 
+    void contarTiempo(void);
+
 private:
     Ui::Juego *ui;
     QTimer *timer;
+    QTimer *tiempoJuego;
+    int min,seg;
+
     QGraphicsScene *scene;
+    QGraphicsLineItem *linea;
     QList<itemgraf*> obst;
+
     itemgraf *capi;
     Persongraf *person;
+    Persongraf *person2;
+
+    void individual();
+    bool dosjugadores;
     int cont;
-    void Scene(Personaje*b);
+    void ScenePerson(Personaje*b);
+    void colisiones(Persongraf *a);
 };
 
 #endif // JUEGO_H

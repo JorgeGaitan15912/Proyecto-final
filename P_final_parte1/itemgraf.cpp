@@ -8,29 +8,29 @@ itemgraf::itemgraf()
 itemgraf::itemgraf(float x, float y)
 {
     obstaculo=new item(x,y);
-    pixmap.load(":/Imagenes videojuego/Aviones/Avión2.png");
+    pixmap.load(":/Aviones.png");
     setPos(x,y);
 }
 
 itemgraf::~itemgraf()
 {
     delete bonus;
-    //delete obstaculo;
+    delete obstaculo;
 }
 
 QRectF itemgraf::boundingRect() const
 {
-    return QRectF(15,0,200,100);
+    return QRectF(15,0,100,100);
 }
 
 void itemgraf::pixCac()
 {
-    pixmap.load(":/Imagenes videojuego/Trampolines/Trampolin1.png");
+    pixmap.load(":/T3.png");
 }
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 //    QPixmap pixmap;
-    //QRectF trampolin(0,0,200,100);
+
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 

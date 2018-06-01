@@ -19,6 +19,7 @@ public:
     void setPy(float value);
 
 private:
+    void trampolin();
     float vx;
     float vy;
     float px;
@@ -26,4 +27,3 @@ private:
 };
 
 #endif // ITEM_H
-

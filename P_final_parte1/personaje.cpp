@@ -105,4 +105,3 @@ void Personaje::setPx(float value)
 }
 
 
-

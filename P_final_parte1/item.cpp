@@ -48,3 +48,8 @@ void item::setPy(float value)
 {
     py = value;
 }
+
+void item::trampolin()
+{
+
+}

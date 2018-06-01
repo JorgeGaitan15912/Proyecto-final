@@ -22,6 +22,8 @@ private slots:
 
     void on_cargarButton_clicked();
 
+    void on_multiButton_2_clicked();
+
 private:
     Ui::menu *ui;
     Juego *juego1;

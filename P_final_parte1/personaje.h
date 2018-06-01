@@ -1,7 +1,7 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 #include <math.h>
-
+#include <QTimer>
 class Personaje
 {
 public:
