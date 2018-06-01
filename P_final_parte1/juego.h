@@ -56,6 +56,7 @@ private slots:
     void keyPressEvent(QKeyEvent* event);
 
     void contarTiempo(void);
+    void avionesAzar(void);
 
 private:
     Ui::Juego *ui;
@@ -65,7 +66,7 @@ private:
 
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
-    QList<itemgraf*> obst;
+    QList<itemgraf*> aviones;
 
     itemgraf *capi;
     Persongraf *person;

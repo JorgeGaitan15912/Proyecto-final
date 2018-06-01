@@ -6,9 +6,9 @@ Persongraf::Persongraf(float x, float y)
     pixmap.load(":/Cacupho2.png");
     setPos(x,y);
 
-//    tiempovuelo=new QTimer();
-//    tiempovuelo->stop();
-//    connect(tiempovuelo,&QTimer::timeout,this,&Persongraf::volar);
+    tiempovuelo=new QTimer();
+    tiempovuelo->start(2000);
+    connect(tiempovuelo,&QTimer::timeout,this,&Persongraf::volar);
 //    connect(tiempovuelo,SIGNAL(timeout()),this,SLOT(volar()));
 }
 
@@ -21,12 +21,12 @@ Persongraf::~Persongraf()
 QRectF Persongraf::boundingRect() const
 {
 //    return QRectF(900,60,40,50);
-    return QRectF(0,0,100,100);
+    return QRectF(0,0,50,50);
 }
 
 void Persongraf::PixPerson2()
 {
-    pixmap.load(":/Imagenes videojuego_F/Capucho/F/M1/Cacupho2.png");
+    pixmap.load(":/Cacupho4.png");
 }
 
 void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

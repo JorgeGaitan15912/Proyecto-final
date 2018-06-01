@@ -7,7 +7,7 @@
 #include <QTimer>
 #include <QObject>
 #include "personaje.h"
-class Persongraf : public QGraphicsItem
+class Persongraf : public QObject, public QGraphicsItem
 {
 public:
     Persongraf(float x, float y);
