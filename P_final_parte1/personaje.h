@@ -2,52 +2,51 @@
 #define PERSONAJE_H
 #include <math.h>
 #include <QTimer>
+
+//Parte fisica de los items
 class Personaje
 {
 public:
+    //Constructores
     Personaje(float x, float y, float vx, float vy);
+
+    //Destructor
     ~Personaje();
-    void inicial();
-    void actualizar(float dt);
-    void calcularVel(float dt);
 
-    float getVy() const;
-    void setVy(float value);
-
+    //Métodos -> get, set
+    float getPx() const;
+    float getPy() const;
     float getVx() const;
-    void setVx(float value);
-
+    float getVy() const;
+    float getAx() const;
     float getAy() const;
+
+    void setPx(float value);
+    void setPy(float value);
+    void setVx(float value);
+    void setVy(float value);
+    void setAx(float value);
     void setAy(float value);
 
-    float getAx() const;
-    void setAx(float value);
-
-    float getPy() const;
-    void setPy(float value);
-
-    float getPx() const;
-    void setPx(float value);
-
-
+    //Métodos simulación
+    void inicial();    
+    void calcularVel(float dt);
+    void actualizar(float dt);
 
 private:
+    //Atributos
     float px;
     float py;
-
-    float ax;
-    float ay;
 
     float Vx;
     float Vy;
 
+    float ax;
+    float ay;
+
     float vi;
     float angulo;
     float altura;
-
-
-
-
 };
 
 #endif // PERSONAJE_H

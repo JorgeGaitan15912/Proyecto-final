@@ -57,39 +57,20 @@ Juego::~Juego()
     delete person;
 //    delete person2;
     delete ui;
-
 }
 
-void Juego::on_pushButton_clicked()
+void Juego::on_Iniciar_clicked()
 {
     timer->start(1000*DT);
     tiempoJuego->start(1000);
-
 }
 
-void Juego::actualizar()
-{
-    for(int i=0;i<aviones.size();i++){
-        aviones.at(i)->actualizar(DT);
-
-        if(aviones.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(aviones.at(i));
-//          avionesaculosAzar();
-        }
-    }
-    capi->actualizar(DT);
-    ScenePerson(person->getpersonaje());
-    person->actualizar(DT);
-    colisiones(person);
-
-}
-
-void Juego::on_pushButton_2_clicked()
+void Juego::on_Pausar_clicked()
 {
     timer->stop();
 }
 
-void Juego::on_pushButton_3_clicked()
+void Juego::on_Reiniciar_clicked()
 {
     timer->stop();
     tiempoJuego->stop();
@@ -119,6 +100,28 @@ void Juego::on_pushButton_3_clicked()
     //volver->show();
 
 }
+
+
+
+
+void Juego::actualizar()
+{
+    for(int i=0;i<aviones.size();i++){
+        aviones.at(i)->actualizar(DT);
+
+        if(aviones.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
+          scene->removeItem(aviones.at(i));
+//          avionesaculosAzar();
+        }
+    }
+    capi->actualizar(DT);
+    ScenePerson(person->getpersonaje());
+    person->actualizar(DT);
+    colisiones(person);
+
+}
+
+
 
 void Juego::keyPressEvent(QKeyEvent *event)
 {
@@ -293,3 +296,4 @@ void Juego::setDosjugadores(bool value)
     dosjugadores = value;
     multijugador();
 }
+

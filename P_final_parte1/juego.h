@@ -22,13 +22,12 @@
 #include "itemgraf.h"
 #include "item.h"
 #include "jugabilidad.h"
-
-
 #include <iostream>
+
 using namespace std;
 
-
 #define DT 0.1
+
 namespace Ui {
 class Juego;
 }
@@ -38,32 +37,41 @@ class Juego : public QMainWindow
     Q_OBJECT
 
 public:
+    //Constructores
     explicit Juego(QWidget *parent = 0);
+
+    //Destructor
     ~Juego();
+
+    //Métodos -> get, set
+    Persongraf *getPerson() const;
+    void setDosjugadores(bool value);
+
+    //Métodos simulación
+    void multijugador();
+
+
+    //Atributos
     float personx;
     float persony;
     float personvx;
     float personvy;
-    void multijugador();
 
-    void setDosjugadores(bool value);
-
-    Persongraf *getPerson() const;
 
 private slots:
-    void on_pushButton_clicked();
+    void on_Iniciar_clicked();
+    void on_Pausar_clicked();
+    void on_Reiniciar_clicked();
+
     void actualizar();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
-    void keyPressEvent(QKeyEvent* event);
-
     void contarTiempo(void);
     void avionesAzar(void);
 
+    void keyPressEvent(QKeyEvent* event);
+
 private:
     Ui::Juego *ui;
+
     QTimer *timer;
     QTimer *tiempoJuego;
     int min,seg;
@@ -77,9 +85,10 @@ private:
     Persongraf *person;
     Persongraf *person2;
 
-    void individual();
     bool dosjugadores;
     int cont;
+
+    void individual();
     void ScenePerson(Personaje*b);
     void colisiones(Persongraf *a);
 };

@@ -14,17 +14,19 @@ class menu : public QWidget
     Q_OBJECT
 
 public:
+    //Constructores
     explicit menu(QWidget *parent = 0);
+
+    //Destructor
     ~menu();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_cargarButton_clicked();
-
-    void on_multiButton_2_clicked();
+    void on_Individual_clicked();
+    void on_Multijugador_clicked();
+    void on_Cargar_clicked();
 
 private:
+    //Atributos
     Ui::menu *ui;
     Juego *juego1;
 };

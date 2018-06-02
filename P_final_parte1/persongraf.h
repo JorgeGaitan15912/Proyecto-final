@@ -7,26 +7,36 @@
 #include <QTimer>
 #include <QObject>
 #include "personaje.h"
+
 class Persongraf : public QObject, public QGraphicsItem
 {
 public:
+    //Constructores
     Persongraf(float x, float y, float vx, float vy);
     //Persongraf(float x, float y, float r, float m);
+
+    //Destructor
     ~Persongraf();
 
-    QRectF boundingRect() const;
-    QPixmap pixmap;
-    void PixPerson2();
-
-    QTimer *tiempovuelo;
-
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    void actualizar(float dt);
+    //Métodos -> get, set
     Personaje *getpersonaje();
+
+    //Métodos simulación
+    QTimer *tiempovuelo;
+    QPixmap pixmap;
+
+    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
+    void PixPerson2();
+    void actualizar(float dt);
+
+
 private slots:
     void volar();
 
 private:
+    //Atributos
     Personaje *capucho;
 };
 

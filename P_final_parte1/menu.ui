@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="Individual">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Iniciar</string>
+    <string>Individual</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="multiButton_2">
+  <widget class="QPushButton" name="Multijugador">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -39,7 +39,7 @@
     <string>Multijugador</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="cargarButton">
+  <widget class="QPushButton" name="Cargar">
    <property name="geometry">
     <rect>
      <x>140</x>

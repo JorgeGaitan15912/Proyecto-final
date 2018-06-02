@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace std;
 
+//Parte fisica de los items
+
+//Constructores
 Personaje::Personaje(float x, float y, float vx, float vy)
 {
     px=x;
@@ -11,11 +14,43 @@ Personaje::Personaje(float x, float y, float vx, float vy)
 
 }
 
+//Destructor
 Personaje::~Personaje()
-{
+{}
 
-}
+//Métodos -> get, set
+float Personaje::getPx() const
+{return px;}
+float Personaje::getPy() const
+{return py;}
 
+float Personaje::getVx() const
+{return Vx;}
+float Personaje::getVy() const
+{return Vy;}
+
+float Personaje::getAx() const
+{return ax;}
+float Personaje::getAy() const
+{return ay;}
+
+
+void Personaje::setPx(float value)
+{px = value;}
+void Personaje::setPy(float value)
+{py = value;}
+
+void Personaje::setVx(float value)
+{Vx = value;}
+void Personaje::setVy(float value)
+{Vy = value;}
+
+void Personaje::setAx(float value)
+{ax = value;}
+void Personaje::setAy(float value)
+{ay = value;}
+
+//Métodos simulación
 void Personaje::inicial()
 {
      ay=-9.8;
@@ -33,6 +68,7 @@ void Personaje::calcularVel(float dt)
     Vx = Vx + ax*dt;
     Vy = Vy + ay*dt;
 }
+
 void Personaje::actualizar(float dt)
 {
     calcularVel(dt);
@@ -46,63 +82,3 @@ void Personaje::actualizar(float dt)
 }
 
 
-
-float Personaje::getVy() const
-{
-    return Vy;
-}
-
-void Personaje::setVy(float value)
-{
-    Vy = value;
-}
-
-float Personaje::getVx() const
-{
-    return Vx;
-}
-
-void Personaje::setVx(float value)
-{
-    Vx = value;
-}
-
-float Personaje::getAy() const
-{
-    return ay;
-}
-
-void Personaje::setAy(float value)
-{
-    ay = value;
-}
-
-float Personaje::getAx() const
-{
-    return ax;
-}
-
-void Personaje::setAx(float value)
-{
-    ax = value;
-}
-
-float Personaje::getPy() const
-{
-    return py;
-}
-
-void Personaje::setPy(float value)
-{
-    py = value;
-}
-
-float Personaje::getPx() const
-{
-    return px;
-}
-
-void Personaje::setPx(float value)
-{
-    px = value;
-}

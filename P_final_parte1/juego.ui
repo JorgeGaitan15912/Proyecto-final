@@ -65,21 +65,21 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="Iniciar">
           <property name="text">
            <string>iniciar</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="Pausar">
           <property name="text">
            <string>pausar</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="Reiniciar">
           <property name="text">
            <string>reiniciar</string>
           </property>
@@ -97,7 +97,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

@@ -1,13 +1,15 @@
 #include "jugabilidad.h"
 
+//Constructores
 jugabilidad::jugabilidad()
 {
     archivo.open("progreso.txt",ios::out);
-
 }
 
+//Métodos simulación
 void jugabilidad::cargar()
 {
+
 
 }
 

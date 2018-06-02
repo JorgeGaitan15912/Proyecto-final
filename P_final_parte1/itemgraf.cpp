@@ -1,5 +1,8 @@
 #include "itemgraf.h"
 
+//Parte grafica de los items
+
+//Constructores
 itemgraf::itemgraf(float x, float y)
 {
     obstaculo=new item(x,y);
@@ -15,19 +18,41 @@ itemgraf::itemgraf(float x, float y)
     connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
 }
 
+//Destructor
 itemgraf::~itemgraf()
-{
-    delete obstaculo;
-}
+{delete obstaculo;}
 
+//Métodos -> get, set
+item *itemgraf::getItem()
+{return obstaculo;}
+
+//Métodos simulación
 QRectF itemgraf::boundingRect() const
 {
     return QRectF(0,0,50,50);
 }
 
+//Obstaculos
+void itemgraf::avion()
+{pixmap.load(":/Aviones.png");}
+
+void itemgraf::pajaro()
+{pixmap.load(":/P_3.png");}
+
+void itemgraf::muro()
+{pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
+
+//Bonus
+void itemgraf::cohete()
+{pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
+
 void itemgraf::trampolin()
+{pixmap.load(":/T3.png");}
+
+void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    pixmap.load(":/T3.png");
+//    QPixmap pixmap;
+    painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 }
 
 void itemgraf::volar()
@@ -39,17 +64,6 @@ void itemgraf::propulsion()
 {
 
 }
-void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-//    QPixmap pixmap;
-
-    painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
-}
-
-item *itemgraf::getItem()
-{
- return obstaculo;
-}
 
 void itemgraf::actualizar(float dt)
 {
@@ -58,25 +72,4 @@ void itemgraf::actualizar(float dt)
     //aca el actualizar de la item(la fisica)
 }
 
-void itemgraf::avion()
-{
-    pixmap.load(":/Aviones.png");
-}
 
-void itemgraf::pajaro()
-{
-    pixmap.load(":/P_3.png");
-
-}
-
-void itemgraf::muro()
-{
-    pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");
-
-}
-
-void itemgraf::cohete()
-{
-    pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");
-
-}

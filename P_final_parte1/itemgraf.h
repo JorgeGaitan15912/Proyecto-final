@@ -12,6 +12,7 @@
 
 using namespace std;
 
+//Parte grafica de los items
 class itemgraf : public QObject, public QGraphicsItem
 {
 
@@ -19,11 +20,14 @@ public:
     //Constructores
     itemgraf(float x, float y);
 
+    //Destructor
     ~itemgraf();
 
-    QRectF boundingRect() const;
-    item *getItem();   
+    //Métodos -> get, set
+    item *getItem();
 
+    //Métodos simulación
+    QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void actualizar(float dt);
 
@@ -43,6 +47,7 @@ private slots:
     void propulsion();
 
 private:
+    //Atributos
     QPixmap pixmap;
     item *obstaculo;
 };

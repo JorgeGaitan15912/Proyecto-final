@@ -1,5 +1,8 @@
 #include "persongraf.h"
 
+//Parte grafica de los items
+
+//Constructores
 Persongraf::Persongraf(float x, float y, float vx, float vy)
 {
     capucho=new Personaje(x,y,vx,vy);
@@ -12,21 +15,22 @@ Persongraf::Persongraf(float x, float y, float vx, float vy)
 //    connect(tiempovuelo,SIGNAL(timeout()),this,SLOT(volar()));
 }
 
+//Destructor
 Persongraf::~Persongraf()
 {
     delete capucho;
     //delete tiempovuelo;
 }
 
+//Métodos -> get, set
+Personaje *Persongraf::getpersonaje()
+{return capucho;}
+
+//Métodos simulación
 QRectF Persongraf::boundingRect() const
 {
 //    return QRectF(900,60,40,50);
     return QRectF(0,0,50,50);
-}
-
-void Persongraf::PixPerson2()
-{
-    pixmap.load(":/Cacupho4.png");
 }
 
 void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -34,6 +38,10 @@ void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 
 }
+
+void Persongraf::PixPerson2()
+{pixmap.load(":/Cacupho4.png");}
+
 
 void Persongraf::actualizar(float dt)
 {
@@ -44,16 +52,6 @@ void Persongraf::actualizar(float dt)
     //setPos(capucho->getPx()*escala,(v_lim-esf->getY())*escala);
     setPos(capucho->getPx(),capucho->getPy());
 }
-Personaje *Persongraf::getpersonaje()
-{
-    return capucho;
-}
 
 void Persongraf::volar()
-{
-    pixmap.load(":/Cacupho4.png");
-}
-
-
-
-
+{pixmap.load(":/Cacupho4.png");}
