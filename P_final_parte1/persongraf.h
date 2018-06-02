@@ -10,7 +10,7 @@
 class Persongraf : public QObject, public QGraphicsItem
 {
 public:
-    Persongraf(float x, float y);
+    Persongraf(float x, float y, float vx, float vy);
     //Persongraf(float x, float y, float r, float m);
     ~Persongraf();
 

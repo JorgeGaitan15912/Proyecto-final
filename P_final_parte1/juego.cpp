@@ -10,8 +10,7 @@ Juego::Juego(QWidget *parent) :
     QPixmap mapa;
     mapa.load(":/Fondo.png");   //Añade el fondo
     scene=new QGraphicsScene(this);
-    scene->setSceneRect(0,0,1000,500);
-
+//    scene->setSceneRect(0,0,1000,500);
     //crea la escene
     ui->graphicsView->setScene(scene);
     //pone fondo a la escene
@@ -26,6 +25,12 @@ Juego::Juego(QWidget *parent) :
     timer->stop();
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
     connect(timer,SIGNAL(timeout()),this,SLOT(avionesAzar()));
+
+
+    personx=10;
+    persony=400;
+    personvx=20;
+    personvy=10;
 
 
 
@@ -105,6 +110,10 @@ void Juego::on_pushButton_3_clicked()
 //        aviones.removeAt(i);
     }
     aviones.clear();
+    personx=10;
+    persony=400;
+    personvx=20;
+    personvy=10;
     multijugador();
 
     //volver->show();
@@ -160,9 +169,8 @@ void Juego::multijugador()
 
 
         // añade el personaje
-        personx=10;
-        persony=400;
-        person=new Persongraf(personx,persony);
+
+        person=new Persongraf(personx,persony,personvx,personvy);
         person->PixPerson2();
         scene->addItem(person);
 
@@ -200,9 +208,7 @@ void Juego::individual()
 
 
     // añade el personaje
-    personx=10;
-    persony=400;
-    person=new Persongraf(personx,persony);
+    person=new Persongraf(personx,persony,personvx,personvy);
     scene->addItem(person);
 
 
@@ -223,21 +229,21 @@ void Juego::individual()
 
 void Juego::ScenePerson(Personaje *b)
 {
-    fstream escritura;
-    escritura.open("estees.txt",ios::out);
-    escritura<<b->getPx()<<"\t"<<b->getPy()<<endl;
-    //    scene->setSceneRect(0,b->getPy(),1000,500);
-
     if(b->getPx()>1000 || b->getPy()>500){
         scene->setSceneRect(b->getPx(),b->getPy(),250,250);
         ui->graphicsView->setScene(scene);
-
     }
-    escritura.close();
+
     if(b->getPy()<=0){
         timer->stop();
         cout<<"posicion en x final es: "<<b->getPx()<<endl;
     }
+
+    fstream escritura;
+    escritura.open("Guardar.txt",ios::out);
+    escritura<<b->getPx()<<"\t"<<b->getPy()<<"\t"<<b->getVx()<<"\t"<<b->getVy();
+    escritura.close();
+
 }
 
 void Juego::colisiones(Persongraf *a)
@@ -274,6 +280,11 @@ void Juego::avionesAzar(void)
     aviones.last()->avion();
     aviones.last()->getItem()->setVel(200,10);
     scene->addItem(aviones.last());
+}
+
+Persongraf *Juego::getPerson() const
+{
+    return person;
 }
 
 

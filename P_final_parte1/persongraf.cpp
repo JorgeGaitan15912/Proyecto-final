@@ -1,8 +1,8 @@
 #include "persongraf.h"
 
-Persongraf::Persongraf(float x, float y)
+Persongraf::Persongraf(float x, float y, float vx, float vy)
 {
-    capucho=new Personaje(x,y);
+    capucho=new Personaje(x,y,vx,vy);
     pixmap.load(":/Cacupho2.png");
     setPos(x,y);
 

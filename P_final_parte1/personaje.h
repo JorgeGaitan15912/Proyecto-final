@@ -5,7 +5,7 @@
 class Personaje
 {
 public:
-    Personaje(float x, float y);
+    Personaje(float x, float y, float vx, float vy);
     ~Personaje();
     void inicial();
     void actualizar(float dt);
@@ -38,8 +38,8 @@ private:
     float ax;
     float ay;
 
-    float vx;
-    float vy;
+    float Vx;
+    float Vy;
 
     float vi;
     float angulo;

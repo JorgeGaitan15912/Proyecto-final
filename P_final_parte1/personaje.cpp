@@ -2,12 +2,13 @@
 #include <iostream>
 using namespace std;
 
-Personaje::Personaje(float x, float y)
+Personaje::Personaje(float x, float y, float vx, float vy)
 {
     px=x;
     py=y;
-    vx=100;
-    vy=10;
+    Vx=vx;
+    Vy=vy;
+
 }
 
 Personaje::~Personaje()
@@ -29,39 +30,41 @@ void Personaje::inicial()
 void Personaje::calcularVel(float dt)
 {   ax=0;
     ay=-9.8;
-    vx = vx + ax*dt;
-    vy = vy + ay*dt;
+    Vx = Vx + ax*dt;
+    Vy = Vy + ay*dt;
 }
 void Personaje::actualizar(float dt)
 {
     calcularVel(dt);
 
-    px += vx*dt + (1/2)*ax*pow(dt,2);
-    py +=vy*dt + (1/2)*ay*pow(dt,2);
+    px += Vx*dt + (1/2)*ax*pow(dt,2);
+    py +=Vy*dt + (1/2)*ay*pow(dt,2);
     cout<<"posicion en y "<<py<<endl;
     cout<<"posicion en x "<<px<<endl;
+    cout<<"velocidad en y "<<Vy<<endl;
+    cout<<"velocidad en x "<<Vx<<endl;
 }
 
 
 
 float Personaje::getVy() const
 {
-    return vy;
+    return Vy;
 }
 
 void Personaje::setVy(float value)
 {
-    vy = value;
+    Vy = value;
 }
 
 float Personaje::getVx() const
 {
-    return vx;
+    return Vx;
 }
 
 void Personaje::setVx(float value)
 {
-    vx = value;
+    Vx = value;
 }
 
 float Personaje::getAy() const
@@ -103,5 +106,3 @@ void Personaje::setPx(float value)
 {
     px = value;
 }
-
-

@@ -42,9 +42,13 @@ public:
     ~Juego();
     float personx;
     float persony;
+    float personvx;
+    float personvy;
     void multijugador();
 
     void setDosjugadores(bool value);
+
+    Persongraf *getPerson() const;
 
 private slots:
     void on_pushButton_clicked();
@@ -67,6 +71,7 @@ private:
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
     QList<itemgraf*> aviones;
+    //QList <QString> cargar;
 
     itemgraf *capi;
     Persongraf *person;
