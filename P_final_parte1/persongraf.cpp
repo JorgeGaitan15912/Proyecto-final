@@ -6,7 +6,7 @@
 Persongraf::Persongraf(float x, float y, float vx, float vy)
 {
     capucho=new Personaje(x,y,vx,vy);
-    pixmap.load(":/Cacupho2.png");
+    pixmap.load(":/Imagenes videojuego_F/Capucho/M4/Cacupho3.png");
     setPos(x,y);
 
     tiempovuelo=new QTimer();
@@ -40,7 +40,7 @@ void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 }
 
 void Persongraf::PixPerson2()
-{pixmap.load(":/Cacupho4.png");}
+{pixmap.load(":/Imagenes videojuego_F/Capucho/M4/Cacupho4.png");}
 
 
 void Persongraf::actualizar(float dt)
@@ -54,4 +54,4 @@ void Persongraf::actualizar(float dt)
 }
 
 void Persongraf::volar()
-{pixmap.load(":/Cacupho4.png");}
+{pixmap.load(":/Imagenes videojuego_F/Capucho/M4/Cacupho4.png");}

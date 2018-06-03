@@ -1,20 +1,18 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
-
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QFile>
 #include <QKeyEvent>
 #include <QPixmap>
+#include <QDebug>
+#include <QApplication>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
-#include <QDebug>
-#include <QApplication>
 
 #include "ui_juego.h"
 #include "persongraf.h"
@@ -48,7 +46,23 @@ public:
     void setDosjugadores(bool value);
 
     //Métodos simulación
+    void inicial();
+    void reiniciar();
+
+    void quitarelementos();
+    void borrarelementos();
+
+    void individual();
     void multijugador();
+    void niveles();
+
+    ////OPTIMIZAR
+    void crear_avion();
+    void crear_pajaro();
+    void crear_muro();
+
+    void crear_cohete();
+    void crear_trampolin();
 
 
     //Atributos
@@ -78,17 +92,28 @@ private:
 
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
+
+    //Listas de objetos
     QList<itemgraf*> aviones;
+    QList<itemgraf*> pajaros;
+    QList<itemgraf*> muros;
+    QList<itemgraf*> cohetes;
+    QList<itemgraf*> trampolines;
+
     //QList <QString> cargar;
 
-    itemgraf *capi;
+    itemgraf *avion_ob;
+    itemgraf *pajaro_ob;
+    itemgraf *muro_ob;
+    itemgraf *cohete_ob;
+    itemgraf *trampolin_ob;
     Persongraf *person;
     Persongraf *person2;
 
     bool dosjugadores;
     int cont;
 
-    void individual();
+
     void ScenePerson(Personaje*b);
     void colisiones(Persongraf *a);
 };

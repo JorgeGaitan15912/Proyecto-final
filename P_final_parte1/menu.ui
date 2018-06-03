@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1000</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="Individual">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>60</y>
-     <width>89</width>
-     <height>25</height>
+     <x>771</x>
+     <y>340</y>
+     <width>200</width>
+     <height>35</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="Multijugador">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>110</y>
-     <width>89</width>
-     <height>25</height>
+     <x>771</x>
+     <y>385</y>
+     <width>200</width>
+     <height>35</height>
     </rect>
    </property>
    <property name="text">
@@ -42,17 +42,42 @@
   <widget class="QPushButton" name="Cargar">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>160</y>
-     <width>89</width>
-     <height>25</height>
+     <x>771</x>
+     <y>430</y>
+     <width>200</width>
+     <height>35</height>
     </rect>
    </property>
    <property name="text">
     <string>Cargar</string>
    </property>
   </widget>
+  <widget class="QLabel" name="Inicio">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>500</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes.qrc">:/Imagenes videojuego_F/Fondo/Fondo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>Inicio</zorder>
+  <zorder>Individual</zorder>
+  <zorder>Multijugador</zorder>
+  <zorder>Cargar</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -34,20 +34,20 @@ QRectF itemgraf::boundingRect() const
 
 //Obstaculos
 void itemgraf::avion()
-{pixmap.load(":/Aviones.png");}
+{pixmap.load(":/Imagenes videojuego_F/Aviones/Aviones.png");}
 
 void itemgraf::pajaro()
-{pixmap.load(":/P_3.png");}
+{pixmap.load(":/Imagenes videojuego_F/Pajaros/P_3.png");}
 
 void itemgraf::muro()
 {pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
 
 //Bonus
 void itemgraf::cohete()
-{pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
+{pixmap.load(":/Imagenes videojuego_F/Cohetes/C3.png");}
 
 void itemgraf::trampolin()
-{pixmap.load(":/T3.png");}
+{pixmap.load(":/Imagenes videojuego_F/Trampolines/T1.png");}
 
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {

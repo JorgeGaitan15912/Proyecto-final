@@ -1,20 +1,90 @@
 <RCC>
     <qresource prefix="/">
-        <file>Aviones.png</file>
-        <file>Cacupho2.png</file>
-        <file>Cacupho4.png</file>
-        <file>T3.png</file>
-        <file>Fondo.png</file>
-        <file>P_1.png</file>
-        <file>P_2.png</file>
-        <file>P_3.png</file>
-        <file>P_4.png</file>
-        <file>P_5.png</file>
-        <file>P_6.png</file>
-        <file>P_7.png</file>
-        <file>P_8.png</file>
-        <file>P_9.png</file>
+        <file>Imagenes videojuego_F/Aviones/Aviones.png</file>
+        <file>Imagenes videojuego_F/Capucho/M1/Cacupho1.png</file>
+        <file>Imagenes videojuego_F/Capucho/M1/Cacupho2.png</file>
+        <file>Imagenes videojuego_F/Capucho/M1/Cacupho3.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho1.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho2.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho3.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho4.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho5.png</file>
+        <file>Imagenes videojuego_F/Capucho/M2/Cacupho6.png</file>
+        <file>Imagenes videojuego_F/Capucho/M3/Cacupho1.png</file>
+        <file>Imagenes videojuego_F/Capucho/M3/Cacupho2.png</file>
+        <file>Imagenes videojuego_F/Capucho/M3/Cacupho3.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho1.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho10.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho2.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho3.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho4.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho5.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho6.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho7.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho8.png</file>
+        <file>Imagenes videojuego_F/Capucho/M4/Cacupho9.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho1.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho10.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho2.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho3.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho4.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho5.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho6.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho7.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho8.png</file>
+        <file>Imagenes videojuego_F/Capucho/M5/Cacupho9.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C1.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C2.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C3.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C4.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete1.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete2.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete3.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete4.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete5.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete6.png</file>
+        <file>Imagenes videojuego_F/Cohetes/Cohete7.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Inicio.png</file>
+        <file>Imagenes videojuego_F/Extras/Bonus/B1.png</file>
+        <file>Imagenes videojuego_F/Extras/Bonus/B2.png</file>
+        <file>Imagenes videojuego_F/Extras/Bonus/B3.png</file>
+        <file>Imagenes videojuego_F/Extras/Bonus/B4.png</file>
+        <file>Imagenes videojuego_F/Extras/Gota/Gota1.png</file>
+        <file>Imagenes videojuego_F/Extras/Gota/Gota2.png</file>
+        <file>Imagenes videojuego_F/Extras/Gota/Gota3.png</file>
+        <file>Imagenes videojuego_F/Extras/Gota/Gota4.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R1.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R10.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R11.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R12.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R13.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R14.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R2.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R3.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R4.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R5.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R6.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R7.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R8.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/R9.png</file>
+        <file>Imagenes videojuego_F/Extras/Tiempo/Reloj.gif</file>
+        <file>Imagenes videojuego_F/Extras/Game over.png</file>
+        <file>Imagenes videojuego_F/Fondo/Fondo.png</file>
+        <file>Imagenes videojuego_F/Muros/Textura1.png</file>
+        <file>Imagenes videojuego_F/Muros/Textura2.png</file>
         <file>Imagenes videojuego_F/Muros/Textura3.png</file>
-        <file>Imagenes videojuego_F/Cohetes/F/C3.png</file>
+        <file>Imagenes videojuego_F/Muros/Textura4.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_1.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_2.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_3.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_4.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_5.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_6.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_7.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
+        <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
+        <file>Imagenes videojuego_F/Trampolines/T1.png</file>
+        <file>Imagenes videojuego_F/Trampolines/T2.png</file>
+        <file>Imagenes videojuego_F/Trampolines/T3.png</file>
     </qresource>
 </RCC>
