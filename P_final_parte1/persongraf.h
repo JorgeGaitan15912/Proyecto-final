@@ -23,17 +23,25 @@ public:
 
     //Métodos simulación
     QTimer *tiempovuelo;
+    QTimer *tiempoCorrer;
+    QTimer *tiempobobo;
     QPixmap pixmap;
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-    void PixPerson2();
     void actualizar(float dt);
-
+    int imagenvolar;
+    int imagencorrer;
+    int imagenAturdido;
+    void volar();
+    void correr();
+    void aturdir();
 
 private slots:
-    void volar();
+    void moverPer();
+    void moviCorrer();
+    void moviAturdido();
 
 private:
     //Atributos

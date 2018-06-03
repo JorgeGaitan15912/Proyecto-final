@@ -12,14 +12,14 @@ Juego::Juego(QWidget *parent) :
     ui->setupUi(this);
 
     //Fondo del graphicsView
-//    QPixmap mapa;
-//    mapa.load(":/Fondo.png");   //Añade el fondo
+  /*   QPixmap mapa;
+     mapa.load(":/Imagenes videojuego_F/Fondo/Fondo.png"); */  //Añade el fondo
     scene=new QGraphicsScene(this);
     scene->setSceneRect(0,0,1000,500);
     //crea la escene
     ui->graphicsView->setScene(scene);
     //pone fondo a la escene
-    //ui->graphicsView->setBackgroundBrush(QBrush(mapa));
+//    ui->graphicsView->setBackgroundBrush(QBrush(mapa));
     //scene->addRect(scene->sceneRect());     //dibuja la escena
     ui->graphicsView->scale(1,-1);          //pone la escena al "derecho"
 
@@ -27,13 +27,34 @@ Juego::Juego(QWidget *parent) :
     //Inicializacion de timers
     timer=new QTimer(this);
     timer->stop();
+
     tiempoJuego=new QTimer(this);
     tiempoJuego->stop();
 
+    tiempoAviones=new QTimer(this);
+    tiempoAviones->stop();
+
+    tiempoCohetes=new QTimer(this);
+    tiempoCohetes->stop();
+
+    tiempoPajaros=new QTimer(this);
+    tiempoPajaros->stop();
+
+    tiempoMuros=new QTimer(this);
+    tiempoMuros->stop();
+
+    tiempoTrampolines=new QTimer(this);
+    tiempoTrampolines->stop();
+
+
     //Coneccion de señales a SLOTS
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
-    connect(timer,SIGNAL(timeout()),this,SLOT(avionesAzar()));
     connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(contarTiempo()));
+    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(avionesAzar()));
+    connect(tiempoCohetes,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
+    connect(tiempoPajaros,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
+    connect(tiempoMuros,SIGNAL(timeout()),this,SLOT(murosAzar()));
+    connect(tiempoTrampolines,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
 
     //Asignando condiciones iniciales al personaje
     inicial();
@@ -58,16 +79,17 @@ Juego::~Juego()
 {
     ////PREGUNTAR SI ES NECESARIO SABIENDO QUE ESTÁN EN LISTAS
     //Eliminando elementos
-    delete avion_ob;
-    delete pajaro_ob;
-    delete muro_ob;
-    delete cohete_ob;
-    delete trampolin_ob;
+
     delete person;
-//    delete person2;
+    delete person2;
 
     delete timer;
     delete tiempoJuego;
+    delete tiempoAviones;
+    delete tiempoCohetes;
+    delete tiempoMuros;
+    delete tiempoTrampolines;
+    delete tiempoPajaros;
     delete ui;
 }
 
@@ -76,11 +98,23 @@ void Juego::on_Iniciar_clicked()
 {
     timer->start(1000*DT);
     tiempoJuego->start(1000);
+
+    tiempoAviones->start(2800);
+    tiempoPajaros->start(1900);
+    tiempoCohetes->start(2000);
+    tiempoTrampolines->start(6000);
 }
 
 void Juego::on_Pausar_clicked()
 {
     timer->stop();
+    tiempoJuego->stop();
+    tiempoAviones->stop();
+    tiempoCohetes->stop();
+    tiempoPajaros->stop();
+    tiempoMuros->stop();
+    tiempoTrampolines->stop();
+
 }
 
 void Juego::on_Reiniciar_clicked()
@@ -94,44 +128,25 @@ void Juego::actualizar()
 {
     for(int i=0;i<aviones.size();i++){
         aviones.at(i)->actualizar(DT);
-
-        if(aviones.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(aviones.at(i));
-        }
     }
 
     for(int i=0;i<pajaros.size();i++){
         pajaros.at(i)->actualizar(DT);
-
-        if(pajaros.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(pajaros.at(i));
-        }
     }
 
     for(int i=0;i<muros.size();i++){
         muros.at(i)->actualizar(DT);
-
-        if(muros.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(muros.at(i));
-        }
     }
 
     for(int i=0;i<cohetes.size();i++){
         cohetes.at(i)->actualizar(DT);
-
-        if(cohetes.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(cohetes.at(i));
-        }
     }
 
     for(int i=0;i<trampolines.size();i++){
         trampolines.at(i)->actualizar(DT);
-
-        if(trampolines.at(i)->getItem()->getPx()+300<person->getpersonaje()->getPx()){
-          scene->removeItem(trampolines.at(i));
-        }
     }
 
+    niveles();
     //Focus personaje
     ScenePerson(person->getpersonaje());
     person->actualizar(DT);
@@ -146,17 +161,31 @@ void Juego::keyPressEvent(QKeyEvent *event)
         if(cont){
             timer->start(1000*DT);
             tiempoJuego->start(1000);
+
+            tiempoAviones->start(2800);
+            tiempoPajaros->start(1900);
+            tiempoCohetes->start(2000);
+            tiempoTrampolines->start(6000);
             cont=0;
         }
         else{
          timer->stop();
          tiempoJuego->stop();
+         tiempoAviones->stop();
+         tiempoCohetes->stop();
+         tiempoPajaros->stop();
+         tiempoTrampolines->stop();
+         tiempoMuros->stop();
          cont++;
         }
 
     }
     if( event->key() == Qt::Key_W){
-        person->getpersonaje()->setPy(person->getpersonaje()->getPy()+10);
+
+        if(person->getpersonaje()->getPy()<1200){
+
+            person->getpersonaje()->setPy(person->getpersonaje()->getPy()+10);
+        }
 
     }
 }
@@ -176,7 +205,7 @@ void Juego::inicial()
 {
     personx=10;
     persony=400;
-    personvx=200;
+    personvx=100;
     personvy=10;
 }
 
@@ -184,14 +213,20 @@ void Juego::reiniciar()
 {
     timer->stop();
     tiempoJuego->stop();
-    min=seg=0;
 
+    tiempoAviones->stop();
+    tiempoPajaros->stop();
+    tiempoMuros->stop();
+    tiempoCohetes->stop();
+    tiempoTrampolines->stop();
+
+    min=seg=0;
 
     //Quitando elementos de la escena
     quitarelementos();
 
     //Limpiando listas
-    borrarelementos();
+    borrarelementos();    
 
     //Creando nuevamente la escena
     scene->setSceneRect(0,0,1000,500);
@@ -230,14 +265,6 @@ void Juego::quitarelementos()
 
 void Juego::borrarelementos()
 {
-////PREGUNTAR ESTA PARTE
-//    delete aviones;
-//    delete pajaros;
-//    delete muros;
-//    delete cohetes;
-//    delete trampolines;
-//    delete person;
-//    delete person2;
 
     aviones.clear();
     pajaros.clear();
@@ -245,8 +272,14 @@ void Juego::borrarelementos()
     cohetes.clear();
     trampolines.clear();
 
+//    delete tiempoJuego;
+//    delete tiempoAviones;
+//    delete tiempoPajaros;
+//    delete tiempoMuros;
+//    delete tiempoCohetes;
+//    delete tiempoTrampolines;
     delete person;
-//    delete person2;
+
 
 
 
@@ -260,16 +293,9 @@ void Juego::individual()
 
     //Agrega el personaje
     person=new Persongraf(personx,persony,personvx,personvy);
+    person->correr();
+//    person->girar();
     scene->addItem(person);
-
-    //Agrega aviones
-    crear_avion();
-
-    //Agrega pajaros
-    crear_pajaro();
-
-    //Agrega trampolines
-    crear_trampolin();
 
 }
 
@@ -283,16 +309,8 @@ void Juego::multijugador()
 
         //Agrega el personaje
         person=new Persongraf(personx,persony,personvx,personvy);
+        person->volar();
         scene->addItem(person);
-
-        //Agrega aviones
-        crear_avion();
-
-        //Agrega pajaros
-        crear_pajaro();
-
-        //Agrega trampolines
-        crear_trampolin();
     }
     else{
 
@@ -303,69 +321,39 @@ void Juego::multijugador()
 
 void Juego::niveles()
 {
-    //Nivel 1 -> px(0,8000)
+    if(person->getpersonaje()->getPx()<=8000){/*
+        tiempoAviones->start(2800);
+        tiempoPajaros->start(1900);
+        tiempoCohetes->start(2000);
+        tiempoTrampolines->start(6000);*/
+
+//        connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(avionesAzar()));
+//        connect(tiempoCohetes,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
+//        connect(tiempoPajaros,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
+//        connect(tiempoMuros,SIGNAL(timeout()),this,SLOT(murosAzar()));
+//        connect(tiempoTrampolines,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
 
 
-}
+        numAviones=10;
+        numPajaros=5;
+        numCohetes=9;
+        numTrampolines=4;
+    }
+//    else if(person->getpersonaje()->getPx()<=20000){
+//        numAviones=40;
+//        numPajaros=20;
+//        numCohetes=5;
+//        numTrampolines=5;
+//    }
 
-void Juego::crear_avion()
-{
-    //Agrega aviones
-    aviones.append(new itemgraf(850,400));
-    aviones.last()->avion();
-    aviones.last()->getItem()->setVel(200,10);
-    scene->addItem(aviones.last());
-
-}
-
-void Juego::crear_pajaro()
-{
-    //Agrega pajaros
-    pajaros.append(new itemgraf(900,250));
-    pajaros.last()->pajaro();
-    pajaros.last()->getItem()->setVel(200,10);
-    scene->addItem(pajaros.last());
-
-}
-
-void Juego::crear_muro()
-{
-    //Agrega muros
-    muros.append(new itemgraf(400,0));
-    muros.last()->muro();
-    muros.last()->getItem()->setVel(0,0);
-    scene->addItem(muros.last());
-
-}
-
-void Juego::crear_cohete()
-{
-    //Agrega cohetes
-    cohetes.append(new itemgraf(400,0));
-    cohetes.last()->cohete();
-    cohetes.last()->getItem()->setVel(0,0);
-    scene->addItem(cohetes.last());
-
-}
-
-void Juego::crear_trampolin()
-{
-    //Agrega trampolines
-    trampolines.append(new itemgraf(400,0));
-    trampolines.last()->trampolin();
-    trampolines.last()->getItem()->setVel(0,0);
-    scene->addItem(trampolines.last());
 
 }
 
 //Focus personaje
-////REVISAR BIEN EL FOCUS Y LOS DATOS LLEVADOS
 void Juego::ScenePerson(Personaje *b)
 {
-    if(b->getPx()>1000 || b->getPy()>500){
-        scene->setSceneRect(b->getPx(),b->getPy()-250,1000,500);
+        scene->setSceneRect(b->getPx(),b->getPy()-250,1000,250);
         ui->graphicsView->setScene(scene);
-    }
 
     fstream escritura;
     escritura.open("Guardar.txt",ios::out);
@@ -384,40 +372,65 @@ void Juego::colisiones(Persongraf *a)
         a->setPos(a->getpersonaje()->getPx(),0);
         timer->stop();
         tiempoJuego->stop();
+        tiempoAviones->stop();
+        tiempoCohetes->stop();
+        tiempoPajaros->stop();
+        tiempoTrampolines->stop();
+        tiempoMuros->stop();
     }
 
     //Colisión con los aviones
     for(int i=0; i<aviones.length(); i++){
         if(a->collidesWithItem(aviones.at(i))){
-            a->getpersonaje()->setVy(a->getpersonaje()->getVy()-50);
+            a->getpersonaje()->setVx(0);
+            //a->getpersonaje()->setVy(a->getpersonaje()->getVy()-120);
+            a->tiempoCorrer->stop();
+            a->tiempovuelo->stop();
+            a->aturdir();
+            //timer->stop();
+            tiempoJuego->stop();
+            tiempoAviones->stop();
+            tiempoCohetes->stop();
+            tiempoPajaros->stop();
+            tiempoTrampolines->stop();
+            tiempoMuros->stop();
         }
     }
 
-    //Colisión con la pajaros
+    //Colisión con los pajaros
     for(int i=0; i<pajaros.length(); i++){
         if(a->collidesWithItem(pajaros.at(i))){
-            a->getpersonaje()->setVy(a->getpersonaje()->getVy()-30);
+            a->getpersonaje()->setVy(a->getpersonaje()->getVy()-50);
+            a->getpersonaje()->setPx(a->getpersonaje()->getPx()-100);
+            a->getpersonaje()->setVx(a->getpersonaje()->getVx()-5);
+            pajaros.at(i)->getItem()->setPx(pajaros.at(i)->getItem()->getPx()+100);
+//            a->tiempovuelo->stop();
+//            a->correr();
         }
     }
 
-    //Colisión con la muros
+    //Colisión con los muros
     for(int i=0; i<muros.length(); i++){
         if(a->collidesWithItem(muros.at(i))){
             //a->getpersonaje()->setVy();
         }
     }
 
-    //Colisión con la cohetes
+    //Colisión con los cohetes
     for(int i=0; i<cohetes.length(); i++){
         if(a->collidesWithItem(cohetes.at(i))){
-            //a->getpersonaje()->setVy();
+           //a->getpersonaje()->setVy(a->getpersonaje()->getVy()+100);
+           a->getpersonaje()->setVx(a->getpersonaje()->getVx()+10);
+           a->tiempoCorrer->stop();
+           a->volar();
         }
     }
 
-    //Colisión con la trampolines
+    //Colisión con los trampolines
     for(int i=0; i<trampolines.length(); i++){
         if(a->collidesWithItem(trampolines.at(i))){
-            a->getpersonaje()->setPy(250);
+            //a->getpersonaje()->setPy(250);
+            a->getpersonaje()->setVy(a->getpersonaje()->getVy()+30);
             //timer->stop();
         }
     }
@@ -427,14 +440,79 @@ void Juego::colisiones(Persongraf *a)
 //Genera objetos al azar
 void Juego::avionesAzar(void)
 {
-//    float px=0,py=0,vx=0;
-//    px=rand() % 900+200;
-//    py=rand() % 400+80;
-//    vx=rand() % 200+10;
+    float py=0,vx=0;
+    py=rand() % 1400+800;
+    vx=rand() % 20+10;
+    if(aviones.length()<numAviones){
+        aviones.append(new itemgraf(person->getpersonaje()->getPx()+1000,py));
+        aviones.last()->avion();
+        aviones.last()->getItem()->setVel(vx,0);
+        scene->addItem(aviones.last());
+    }
+    else{
+        scene->removeItem(aviones.front());
+        aviones.pop_front();
+    }
 //    aviones.append(new itemgraf(px,py));
 //    aviones.last()->avion();
 //    aviones.last()->getItem()->setVel(vx,0);
 //    scene->addItem(aviones.last());
+
+}
+
+void Juego::cohetesAzar()
+{
+    float py=0,vx=0;
+    py=rand() % 1400+100;
+    vx=rand() % 20+10;
+    if(cohetes.length()<numCohetes){
+        cohetes.append(new itemgraf(person->getpersonaje()->getPx()+1000,py));
+        cohetes.last()->moverCohete();
+        cohetes.last()->getItem()->setVel(vx,0);
+        scene->addItem(cohetes.last());
+    }
+    else{
+        scene->removeItem(cohetes.front());
+        cohetes.pop_front();
+    }
+}
+
+void Juego::pajarosAzar()
+{
+    float py=0,vx=0;
+    py=rand() % 1000+100;
+    vx=rand() % 20+10;
+    if(pajaros.length()<numPajaros){
+        pajaros.append(new itemgraf(person->getpersonaje()->getPx()+1000,py));
+        pajaros.last()->moverpajaro();
+        pajaros.last()->getItem()->setVel(vx,0);
+        scene->addItem(pajaros.last());
+    }
+    else{
+        scene->removeItem(pajaros.front());
+        pajaros.pop_front();
+    }
+}
+
+void Juego::trampolinAzar()
+{
+    float px=0;
+    px=rand() % 1000+100;
+    if(trampolines.length()<numTrampolines){
+        trampolines.append(new itemgraf(px+700,0));
+        trampolines.last()->trampolin();
+        //trampolines.last()->getItem()->setVel(vx,0);
+        scene->addItem(trampolines.last());
+    }
+    else{
+        scene->removeItem(trampolines.front());
+        trampolines.pop_front();
+    }
+}
+
+void Juego::murosAzar()
+{
+
 }
 
 //

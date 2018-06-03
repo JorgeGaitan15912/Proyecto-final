@@ -35,12 +35,16 @@ public:
     void avion();
     void pajaro();
     void muro();
+
     //Bonus
     void cohete();
     void trampolin();
 
-    QTimer *tiempoVuelo;
-    QTimer *tiempoCohete;
+    //controlan las animaciones
+    void moverpajaro();
+    void moverCohete();
+    int imagenp;
+    int imagenCohe;
 
 private slots:
     void volar();
@@ -50,6 +54,9 @@ private:
     //Atributos
     QPixmap pixmap;
     item *obstaculo;
+
+    QTimer *tiempoVuelo;
+    QTimer *tiempoCohete;
 };
 
 #endif // ITEMGRAF_H

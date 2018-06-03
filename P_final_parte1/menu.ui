@@ -65,7 +65,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="imagenes.qrc">:/Imagenes videojuego_F/Fondo/Fondo.png</pixmap>
+    <pixmap resource="imagenes.qrc">:/Imagenes videojuego_F/Fondo/Inicio.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

@@ -56,14 +56,6 @@ public:
     void multijugador();
     void niveles();
 
-    ////OPTIMIZAR
-    void crear_avion();
-    void crear_pajaro();
-    void crear_muro();
-
-    void crear_cohete();
-    void crear_trampolin();
-
 
     //Atributos
     float personx;
@@ -80,6 +72,10 @@ private slots:
     void actualizar();
     void contarTiempo(void);
     void avionesAzar(void);
+    void pajarosAzar(void);
+    void murosAzar(void);
+    void cohetesAzar(void);
+    void trampolinAzar(void);
 
     void keyPressEvent(QKeyEvent* event);
 
@@ -88,6 +84,11 @@ private:
 
     QTimer *timer;
     QTimer *tiempoJuego;
+    QTimer *tiempoAviones;
+    QTimer *tiempoPajaros;
+    QTimer *tiempoMuros;
+    QTimer *tiempoCohetes;
+    QTimer *tiempoTrampolines;
     int min,seg;
 
     QGraphicsScene *scene;
@@ -96,23 +97,23 @@ private:
     //Listas de objetos
     QList<itemgraf*> aviones;
     QList<itemgraf*> pajaros;
-    QList<itemgraf*> muros;
     QList<itemgraf*> cohetes;
+    QList<itemgraf*> muros;
     QList<itemgraf*> trampolines;
 
     //QList <QString> cargar;
 
-    itemgraf *avion_ob;
-    itemgraf *pajaro_ob;
-    itemgraf *muro_ob;
-    itemgraf *cohete_ob;
-    itemgraf *trampolin_ob;
     Persongraf *person;
     Persongraf *person2;
 
     bool dosjugadores;
     int cont;
 
+    int numAviones;
+    int numPajaros;
+    int numCohetes;
+    int numTrampolines;
+    int numMuros;
 
     void ScenePerson(Personaje*b);
     void colisiones(Persongraf *a);

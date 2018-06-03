@@ -37,43 +37,46 @@
         <file>Imagenes videojuego_F/Cohetes/C2.png</file>
         <file>Imagenes videojuego_F/Cohetes/C3.png</file>
         <file>Imagenes videojuego_F/Cohetes/C4.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete1.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete2.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete3.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete4.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete5.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete6.png</file>
-        <file>Imagenes videojuego_F/Cohetes/Cohete7.png</file>
         <file>Imagenes videojuego_F/Control de acceso/Inicio.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B1.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B2.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B3.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B4.png</file>
-        <file>Imagenes videojuego_F/Extras/Gota/Gota1.png</file>
-        <file>Imagenes videojuego_F/Extras/Gota/Gota2.png</file>
-        <file>Imagenes videojuego_F/Extras/Gota/Gota3.png</file>
-        <file>Imagenes videojuego_F/Extras/Gota/Gota4.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R1.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R10.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R11.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R12.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R13.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R14.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R2.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R3.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R4.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R5.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R6.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R7.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R8.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/R9.png</file>
-        <file>Imagenes videojuego_F/Extras/Tiempo/Reloj.gif</file>
         <file>Imagenes videojuego_F/Extras/Game over.png</file>
         <file>Imagenes videojuego_F/Fondo/Fondo.png</file>
-        <file>Imagenes videojuego_F/Muros/Textura1.png</file>
-        <file>Imagenes videojuego_F/Muros/Textura2.png</file>
         <file>Imagenes videojuego_F/Muros/Textura3.png</file>
-        <file>Imagenes videojuego_F/Muros/Textura4.png</file>
+        <file>Imagenes videojuego_F/Ninja/M1/Ninja1.png</file>
+        <file>Imagenes videojuego_F/Ninja/M1/Ninja2.png</file>
+        <file>Imagenes videojuego_F/Ninja/M1/Ninja3.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja1.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja2.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja3.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja4.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja5.png</file>
+        <file>Imagenes videojuego_F/Ninja/M2/Ninja6.png</file>
+        <file>Imagenes videojuego_F/Ninja/M3/Ninja1.png</file>
+        <file>Imagenes videojuego_F/Ninja/M3/Ninja2.png</file>
+        <file>Imagenes videojuego_F/Ninja/M3/Ninja3.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja1.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja10.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja2.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja3.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja4.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja5.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja6.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja7.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja8.png</file>
+        <file>Imagenes videojuego_F/Ninja/M4/Ninja9.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja1.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja10.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja2.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja3.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja4.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja5.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja6.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja7.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja8.png</file>
+        <file>Imagenes videojuego_F/Ninja/M5/Ninja9.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_1.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_2.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_3.png</file>
@@ -84,7 +87,6 @@
         <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
         <file>Imagenes videojuego_F/Trampolines/T1.png</file>
-        <file>Imagenes videojuego_F/Trampolines/T2.png</file>
-        <file>Imagenes videojuego_F/Trampolines/T3.png</file>
+        <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
     </qresource>
 </RCC>
