@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 //    Juego w;
 //    w.show();
-//    menu w;
-    Control_de_acceso w;
+         menu w;
+//    Control_de_acceso w;
     w.show();
     return a.exec();
 

@@ -11,6 +11,7 @@ itemgraf::itemgraf(float x, float y)
     imagenp=1;
     imagenCohe=1;
     perdio=false;
+    Tmuro=false;
 }
 
 //Destructor
@@ -31,6 +32,9 @@ QRectF itemgraf::boundingRect() const
     if (perdio){
         return QRect(0,0,200,100);
     }
+    else if(Tmuro){
+        return QRect(0,0,100,300);
+    }
     else{
         return QRectF(0,0,50,50);
     }
@@ -40,8 +44,6 @@ QRectF itemgraf::boundingRect() const
 void itemgraf::avion()
 {pixmap.load(":/Imagenes videojuego_F/Aviones/Aviones.png");}
 
-void itemgraf::pajaro()
-{pixmap.load(":/Imagenes videojuego_F/Pajaros/P_1.png");}
 
 void itemgraf::muro()
 {pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
@@ -52,8 +54,6 @@ void itemgraf::gameOver()
 }
 
 //Bonus
-void itemgraf::cohete()
-{pixmap.load(":/Imagenes videojuego_F/Cohetes/C3.png");}
 
 void itemgraf::trampolin()
 {pixmap.load(":/Imagenes videojuego_F/Trampolines/T1.png");}
@@ -61,15 +61,21 @@ void itemgraf::trampolin()
 void itemgraf::moverpajaro()
 {
     tiempoVuelo=new QTimer();
-    tiempoVuelo->start(1000*0.1);
+    tiempoVuelo->start(1000*DT);
     connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::volar);
 }
 
 void itemgraf::moverCohete()
 {
     tiempoCohete=new QTimer();
-    tiempoCohete->start(1000*0.1);
+    tiempoCohete->start(1000*DT);
     connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
+}
+
+void itemgraf::setMuro(bool value)
+{
+    Tmuro = value;
+    boundingRect();
 }
 
 void itemgraf::setPerdio(bool value)
@@ -155,7 +161,7 @@ void itemgraf::propulsion()
         imagenCohe++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Cohetes/C3.png");
+        pixmap.load(":/Imagenes videojuego_F/Cohetes/C4.png");
         imagenCohe=1;
     }
 }

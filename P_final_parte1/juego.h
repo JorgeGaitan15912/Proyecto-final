@@ -49,6 +49,7 @@ public:
     void inicial();
     void reiniciar();
 
+    void letrero();
     void quitarelementos();
     void borrarelementos();
 
@@ -84,7 +85,7 @@ private:
 
     QTimer *timer;
     QTimer *tiempoJuego;
-    QTimer *tiempoAviones;
+    QTimer *tiempoObjetos;
     int min,seg;
 
     QGraphicsScene *scene;

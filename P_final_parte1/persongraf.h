@@ -8,6 +8,7 @@
 #include <QObject>
 #include "personaje.h"
 
+#define DT 0.1
 class Persongraf : public QObject, public QGraphicsItem
 {
 public:
@@ -25,6 +26,11 @@ public:
     QTimer *tiempoVolar;
     QTimer *tiempoCorrer;
     QTimer *tiempobobo;
+
+    QTimer *tiempoVolar2;
+    QTimer *tiempoCorrer2;
+    QTimer *tiempobobo2;
+
     QPixmap pixmap;
 
     QRectF boundingRect() const;

@@ -13,15 +13,13 @@ Juego::Juego(QWidget *parent) :
 
     //Fondo del graphicsView
      QPixmap mapa;
-     mapa.load(":/Imagenes videojuego_F/Fondo/Fondo.png");   //Añade el fondo
+//     mapa.load(":/Imagenes videojuego_F/Fondo/Fondo completo.png");   //Añade el fondo
     scene=new QGraphicsScene(this);
-    //scene->setSceneRect(0,0,1000,500);
     scene->setSceneRect(0,0,1000,500);
     //crea la escene
     ui->graphicsView->setScene(scene);
     //pone fondo a la escene
      ui->graphicsView->setBackgroundBrush(QBrush(mapa));
-    //scene->addRect(scene->sceneRect());     //dibuja la escena
     ui->graphicsView->scale(1,-1);          //pone la escena al "derecho"
 
 
@@ -32,18 +30,18 @@ Juego::Juego(QWidget *parent) :
     tiempoJuego=new QTimer(this);
     tiempoJuego->stop();
 
-    tiempoAviones=new QTimer(this);
-    tiempoAviones->stop();
+    tiempoObjetos=new QTimer(this);
+    tiempoObjetos->stop();
 
 
     //Coneccion de señales a SLOTS
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
     connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(contarTiempo()));
-    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(avionesAzar()));
-    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
-    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
-    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(murosAzar()));
-    connect(tiempoAviones,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(avionesAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(murosAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
 
     //Asignando condiciones iniciales al personaje
         inicial();
@@ -60,7 +58,7 @@ Juego::Juego(QWidget *parent) :
 
     //controla la pausa del juego e inicializa el menu de pause
         cont=0;
-        gameOver=new itemgraf(0,0);
+       gameOver=new itemgraf(0,0);
     //Semilla para generar objetos al azar
         srand(time(NULL));
 }
@@ -78,7 +76,7 @@ Juego::~Juego()
 
     delete timer;
     delete tiempoJuego;
-    delete tiempoAviones;
+    delete tiempoObjetos;
     delete ui;
 }
 
@@ -88,14 +86,14 @@ void Juego::on_Iniciar_clicked()
     timer->start(1000*DT);
     tiempoJuego->start(1000);
 
-    tiempoAviones->start(2800*DT);
+    tiempoObjetos->start(2800);
 }
 
 void Juego::on_Pausar_clicked()
 {
     timer->stop();
     tiempoJuego->stop();
-    tiempoAviones->stop();
+    tiempoObjetos->stop();
 
 }
 
@@ -144,20 +142,20 @@ void Juego::keyPressEvent(QKeyEvent *event)
             timer->start(1000*DT);
             tiempoJuego->start(1000);
 
-            tiempoAviones->start(2800);
+            tiempoObjetos->start(2800);
             cont=0;
         }
         else{
          timer->stop();
          tiempoJuego->stop();
-         tiempoAviones->stop();
+         tiempoObjetos->stop();
          cont++;
         }
 
     }
     if( event->key() == Qt::Key_W){
 
-        if(person->getpersonaje()->getPy()<1200){
+        if(person->getpersonaje()->getPy()<1400){
 
             person->getpersonaje()->setPy(person->getpersonaje()->getPy()+10);
         }
@@ -180,8 +178,8 @@ void Juego::inicial()
 {
     personx=10;
     persony=400;
-    personvx=100;
-    personvy=10;
+    personvx=200;
+    personvy=60;
 }
 
 void Juego::reiniciar()
@@ -189,7 +187,7 @@ void Juego::reiniciar()
     timer->stop();
     tiempoJuego->stop();
     person->pararTiempos();
-    tiempoAviones->stop();
+    tiempoObjetos->stop();
     min=seg=0;
 
     //Quitando elementos de la escena
@@ -206,6 +204,14 @@ void Juego::reiniciar()
     multijugador();
 }
 
+void Juego::letrero()
+{
+    gameOver->setPos(person->getpersonaje()->getPx(),person->getpersonaje()->getPy()+50);
+    gameOver->setPerdio(true);
+    gameOver->gameOver();
+    scene->addItem(gameOver);
+}
+
 void Juego::quitarelementos()
 {
 
@@ -217,9 +223,9 @@ void Juego::quitarelementos()
         scene->removeItem(pajaros.at(i));
     }
 
-//    for (int i=0 ; i < muros.length() ; i++){
-//        scene->removeItem(muros.at(i));
-//    }
+    for (int i=0 ; i < muros.length() ; i++){
+        scene->removeItem(muros.at(i));
+    }
 
     for (int i=0 ; i < cohetes.length() ; i++){
         scene->removeItem(cohetes.at(i));
@@ -233,20 +239,16 @@ void Juego::quitarelementos()
     scene->removeItem(gameOver);
     scene->removeItem(linea);
 }
-
 void Juego::borrarelementos()
 {
 
     aviones.clear();
     pajaros.clear();
-   // muros.clear();
+    muros.clear();
     cohetes.clear();
     trampolines.clear();
     delete person;
     delete linea;
-//    delete gameOver;
-
-
 
 
 }
@@ -254,10 +256,8 @@ void Juego::borrarelementos()
 void Juego::individual()
 {
     //Agrega el suelo
-    linea=new QGraphicsLineItem(-200,0,60000,0);
+    linea=new QGraphicsLineItem(0,60,60000,0);
     scene->addItem(linea);
-    //control de vidas
-    vidas=1;
 
     //Agrega el personaje
     person=new Persongraf(personx,persony,personvx,personvy);
@@ -269,11 +269,10 @@ void Juego::individual()
 void Juego::multijugador()
 {
     if(dosjugadores){
-        //control de vidas
         if(jugador2){
 
         //Agrega el suelo
-        linea=new QGraphicsLineItem(-200,0,60000,0);
+        linea=new QGraphicsLineItem(0,60,60000,0);
         scene->addItem(linea);
 
         //Agrega el personaje
@@ -283,7 +282,7 @@ void Juego::multijugador()
         }
         else{
             //Agrega el suelo
-            linea=new QGraphicsLineItem(-200,0,60000,0);
+            linea=new QGraphicsLineItem(0,60,60000,0);
             scene->addItem(linea);
 
             //Agrega el personaje
@@ -302,18 +301,28 @@ void Juego::multijugador()
 
 void Juego::niveles()
 {
-    if(person->getpersonaje()->getPx()<=8000){
+    if(person->getpersonaje()->getPx()<=4000){
         numAviones=10;
-        numPajaros=5;
-        numCohetes=9;
-        numTrampolines=4;
+        numPajaros=10;
+        numCohetes=10;
+        numMuros=3;
+        numTrampolines=10;
     }
-//    else if(person->getpersonaje()->getPx()<=20000){
-//        numAviones=40;
-//        numPajaros=20;
-//        numCohetes=5;
-//        numTrampolines=5;
-//    }
+    else if(person->getpersonaje()->getPx()<=8000){
+        numAviones=11;
+        numPajaros=15;
+        numCohetes=7;
+        numMuros=5;
+        numTrampolines=3;
+    }
+    else{
+        numAviones=16;
+        numPajaros=15;
+        numCohetes=3;
+        numMuros=10;
+        numTrampolines=3;
+        person->getpersonaje()->setAy(-15);
+    }
 
 
 }
@@ -338,19 +347,18 @@ void Juego::colisiones(Persongraf *a)
     //Colisión con la linea
     if(a->collidesWithItem(linea) )
     {
-        a->setPos(a->getpersonaje()->getPx(),0);
+        a->setPos(a->getpersonaje()->getPx(),60);
         if(dosjugadores){
             if(jugador2){
-                jugador2=false;
-                scene->setSceneRect(a->getpersonaje()->getPx()-250,0,500,500);
+                scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
                 ui->graphicsView->setScene(scene);
-                gameOver=new itemgraf(a->getpersonaje()->getPx(),a->getpersonaje()->getPy()+50);
-                gameOver->setPerdio(true);
-                gameOver->gameOver();
-                scene->addItem(gameOver);
+                a->getpersonaje()->setVy(0);
+                a->getpersonaje()->setVx(0);
+                letrero();
                 timer->stop();
                 tiempoJuego->stop();
-                tiempoAviones->stop();
+                tiempoObjetos->stop();
+                jugador2=false;
             }
             else{
                 jugador2=true;
@@ -358,15 +366,14 @@ void Juego::colisiones(Persongraf *a)
             }
         }
         else{
-            scene->setSceneRect(a->getpersonaje()->getPx()-250,0,500,500);
+            scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
             ui->graphicsView->setScene(scene);
-            gameOver=new itemgraf(a->getpersonaje()->getPx(),a->getpersonaje()->getPy()+50);
-            gameOver->setPerdio(true);
-            gameOver->gameOver();
-            scene->addItem(gameOver);
+            a->getpersonaje()->setVy(0);
+            a->getpersonaje()->setVx(0);
+            letrero();
             timer->stop();
             tiempoJuego->stop();
-            tiempoAviones->stop();
+            tiempoObjetos->stop();
 
         }
 
@@ -375,28 +382,76 @@ void Juego::colisiones(Persongraf *a)
     //Colisión con los aviones
     for(int i=0; i<aviones.length(); i++){
         if(a->collidesWithItem(aviones.at(i))){
+            if(dosjugadores){
+                if(jugador2){
+                    letrero();
+                    tiempoObjetos->stop();
+                    tiempoJuego->stop();
+                    timer->stop();
+                    jugador2=false;
+                 }
+                else{
+                    jugador2=true;
+                    reiniciar();
+                }
+            }
+            else{
+                letrero();
+                tiempoObjetos->stop();
+                tiempoJuego->stop();
+                timer->stop();
+
+            }
         }
     }
 
     //Colisión con los pajaros
     for(int i=0; i<pajaros.length(); i++){
         if(a->collidesWithItem(pajaros.at(i))){
-            person->pararTiempos();
-            person->correr2();
+            if(jugador2){
+                person->pararTiempos();
+                person->correr2();
+                person->getpersonaje()->setVx(person->getpersonaje()->getVx()-8);
+            }
+            else{
+                person->pararTiempos();
+                person->correr();
+                person->getpersonaje()->setVx(person->getpersonaje()->getVx()-8);
+            }
         }
     }
 
     //Colisión con los muros
     for(int i=0; i<muros.length(); i++){
         if(a->collidesWithItem(muros.at(i))){
+            if(jugador2){
+                person->pararTiempos();
+                person->aturdir2();
+                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                person->getpersonaje()->setVx(0);
+            }
+            else{
+                person->pararTiempos();
+                person->aturdir();
+                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                person->getpersonaje()->setVx(0);
+            }
         }
     }
 
     //Colisión con los cohetes
     for(int i=0; i<cohetes.length(); i++){
         if(a->collidesWithItem(cohetes.at(i))){
-            person->pararTiempos();
-            person->volar();
+            if(jugador2){
+                person->pararTiempos();
+                person->volar2();
+                person->getpersonaje()->setVx(person->getpersonaje()->getVx()+5);
+            }
+            else{
+                person->pararTiempos();
+                person->volar();
+                person->getpersonaje()->setVx(person->getpersonaje()->getVx()+5);
+            }
 
         }
     }
@@ -404,6 +459,20 @@ void Juego::colisiones(Persongraf *a)
     //Colisión con los trampolines
    for(int i=0; i<trampolines.length(); i++){
         if(a->collidesWithItem(trampolines.at(i))){
+            if(a->collidesWithItem(pajaros.at(i))){
+                if(jugador2){
+                    person->pararTiempos();
+                    person->volar2();
+                    person->getpersonaje()->setVy(person->getpersonaje()->getVy()+100);
+                    person->getpersonaje()->setVx(person->getpersonaje()->getVx()-40);
+                }
+                else{
+                    person->pararTiempos();
+                    person->volar();
+                    person->getpersonaje()->setVy(person->getpersonaje()->getVy()+100);
+                    person->getpersonaje()->setVx(person->getpersonaje()->getVx()-40);
+                }
+            }
 
         }
     }
@@ -466,10 +535,11 @@ void Juego::pajarosAzar()
 void Juego::trampolinAzar()
 {
     float px=0;
-    px=rand() % 1000+100;
+    px=rand() % 1400+500;
     if(trampolines.length()<numTrampolines){
-        trampolines.append(new itemgraf(px+700,0));
+        trampolines.append(new itemgraf(person->getpersonaje()->getPx()+px,60));
         trampolines.last()->trampolin();
+        trampolines.last()->getItem()->setVel(0,0);
         scene->addItem(trampolines.last());
     }
     else{
@@ -480,9 +550,20 @@ void Juego::trampolinAzar()
 
 void Juego::murosAzar()
 {
-
+    float px=0;
+    px=rand() % 1000+500;
+    if(muros.length()<numMuros){
+        muros.append(new itemgraf(person->getpersonaje()->getPx()+px,60));
+        muros.last()->setMuro(true);
+        muros.last()->muro();
+        muros.last()->getItem()->setVel(0,0);
+        scene->addItem(muros.last());
+    }
+    else{
+        scene->removeItem(muros.front());
+        muros.pop_front();
+    }
 }
-
 //
 Persongraf *Juego::getPerson() const
 {

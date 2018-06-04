@@ -14,16 +14,16 @@ Persongraf::Persongraf(float x, float y, float vx, float vy)
     imagencorrer2=1;
     imagenAturdido2=1;
 
-    setPos(x,y);
-
     tiempoVolar=new QTimer();
-    tiempoVolar->stop();
-
     tiempoCorrer=new QTimer();
-    tiempoVolar->stop();
-
     tiempobobo=new QTimer();
-    tiempobobo->stop();
+
+    tiempoVolar2=new QTimer();
+    tiempoCorrer2=new QTimer();
+    tiempobobo2=new QTimer();
+
+
+    setPos(x,y);
 }
 
 //Destructor
@@ -33,6 +33,10 @@ Persongraf::~Persongraf()
     delete tiempoVolar;
     delete tiempoCorrer;
     delete tiempobobo;
+
+    delete tiempoVolar2;
+    delete tiempoCorrer2;
+    delete tiempobobo2;
 }
 
 //Métodos -> get, set
@@ -70,6 +74,10 @@ void Persongraf::pararTiempos()
     tiempobobo->stop();
     tiempoCorrer->stop();
     tiempoVolar->stop();
+
+    tiempobobo2->stop();
+    tiempoCorrer2->stop();
+    tiempoVolar2->stop();
 }
 
 
@@ -78,42 +86,51 @@ void Persongraf::pararTiempos()
 
 void Persongraf::volar()
 {
-
-    tiempoVolar->start(1000*0.1);
+//    pararTiempos();
+//    tiempoVolar=new QTimer();
+    tiempoVolar->start(1000*DT);
     connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer);
 
 }
 
 void Persongraf::correr()
 {
+//    pararTiempos();
 //    tiempoCorrer=new QTimer();
-    tiempoCorrer->start(1000*0.1);
+    tiempoCorrer->start(1000*DT);
     connect(tiempoCorrer,&QTimer::timeout,this,&Persongraf::moviCorrer);
 }
 
 void Persongraf::aturdir()
 {
+//    pararTiempos();
 //    tiempobobo=new QTimer();
-    tiempobobo->start(1000*0.1);
+    tiempobobo->start(1000*DT);
     connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido);
 }
 
 void Persongraf::volar2()
 {
-    tiempoVolar->start(1000*0.1);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer2);
+//        pararTiempos();
+//    tiempoVolar2=new QTimer();
+    tiempoVolar2->start(1000*DT);
+    connect(tiempoVolar2,&QTimer::timeout,this,&Persongraf::moverPer2);
 }
 
 void Persongraf::correr2()
 {
-    tiempoCorrer->start(1000*0.1);
-    connect(tiempoCorrer,&QTimer::timeout,this,&Persongraf::moviCorrer2);
+//    pararTiempos();
+//    tiempoCorrer2=new QTimer();
+    tiempoCorrer2->start(1000*DT);
+    connect(tiempoCorrer2,&QTimer::timeout,this,&Persongraf::moviCorrer2);
 }
 
 void Persongraf::aturdir2()
 {
-    tiempobobo->start(1000*0.1);
-    connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido2);
+//        pararTiempos();
+//    tiempobobo2=new QTimer();
+    tiempobobo2->start(1000*DT);
+    connect(tiempobobo2,&QTimer::timeout,this,&Persongraf::moviAturdido2);
 }
 
 

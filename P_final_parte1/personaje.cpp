@@ -11,6 +11,8 @@ Personaje::Personaje(float x, float y, float vx, float vy)
     py=y;
     Vx=vx;
     Vy=vy;
+    ay=-9.8;
+    ax=0;
 
 }
 
@@ -50,21 +52,9 @@ void Personaje::setAx(float value)
 void Personaje::setAy(float value)
 {ay = value;}
 
-//Métodos simulación
-void Personaje::inicial()
-{
-     ay=-9.8;
-     ax=0;
-//     px=0;
-//     py=20;
-//     vx=200;
-//     vy=200;
-
-}
 
 void Personaje::calcularVel(float dt)
-{   ax=0;
-    ay=-9.8;
+{
     Vx = Vx + ax*dt;
     Vy = Vy + ay*dt;
 }

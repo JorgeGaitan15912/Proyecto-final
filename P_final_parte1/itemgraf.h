@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QObject>
 
+#define DT 0.1
 using namespace std;
 
 //Parte grafica de los items
@@ -33,12 +34,10 @@ public:
 
     //Obstaculos
     void avion();
-    void pajaro();
     void muro();
     void gameOver();
 
     //Bonus
-    void cohete();
     void trampolin();
 
     //controlan las animaciones
@@ -47,8 +46,11 @@ public:
     int imagenp;
     int imagenCohe;
     bool perdio;
+    bool Tmuro;
 
     void setPerdio(bool value);
+
+    void setMuro(bool value);
 
 private slots:
     void volar();

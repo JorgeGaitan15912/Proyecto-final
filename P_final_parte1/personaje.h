@@ -29,7 +29,6 @@ public:
     void setAy(float value);
 
     //Métodos simulación
-    void inicial();    
     void calcularVel(float dt);
     void actualizar(float dt);
 
