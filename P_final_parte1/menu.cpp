@@ -66,6 +66,7 @@ void menu::on_Cargar_clicked()
     //    juego1->getPerson()->getpersonaje()->setVy(cargar.at(3).toFloat());
 
         juego1->show();
+        //// FALTA MIRARLO BIEN
         juego1->setDosjugadores(false);
         this->close();
 

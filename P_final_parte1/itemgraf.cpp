@@ -10,6 +10,7 @@ itemgraf::itemgraf(float x, float y)
     setPos(x,y);
     imagenp=1;
     imagenCohe=1;
+    perdio=false;
 }
 
 //Destructor
@@ -27,7 +28,12 @@ item *itemgraf::getItem()
 //Métodos simulación
 QRectF itemgraf::boundingRect() const
 {
-    return QRectF(0,0,50,50);
+    if (perdio){
+        return QRect(0,0,200,100);
+    }
+    else{
+        return QRectF(0,0,50,50);
+    }
 }
 
 //Obstaculos
@@ -40,6 +46,11 @@ void itemgraf::pajaro()
 void itemgraf::muro()
 {pixmap.load(":/Imagenes videojuego_F/Muros/Textura3.png");}
 
+void itemgraf::gameOver()
+{
+    pixmap.load(":/Imagenes videojuego_F/Extras/Game over.png");
+}
+
 //Bonus
 void itemgraf::cohete()
 {pixmap.load(":/Imagenes videojuego_F/Cohetes/C3.png");}
@@ -50,15 +61,22 @@ void itemgraf::trampolin()
 void itemgraf::moverpajaro()
 {
     tiempoVuelo=new QTimer();
-    tiempoVuelo->start(100);
+    tiempoVuelo->start(1000*0.1);
     connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::volar);
 }
 
 void itemgraf::moverCohete()
 {
     tiempoCohete=new QTimer();
-    tiempoCohete->start(200);
+    tiempoCohete->start(1000*0.1);
     connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
+}
+
+void itemgraf::setPerdio(bool value)
+{
+    perdio = value;
+    boundingRect();
+
 }
 
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

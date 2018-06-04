@@ -9,18 +9,28 @@ Persongraf::Persongraf(float x, float y, float vx, float vy)
     imagenvolar=1;
     imagencorrer=1;
     imagenAturdido=1;
+
+    imagenvolar2=1;
+    imagencorrer2=1;
+    imagenAturdido2=1;
+
     setPos(x,y);
 
-//    tiempobobo=new QTimer();
-//    tiempobobo->stop();
-//    connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido);
+    tiempoVolar=new QTimer();
+    tiempoVolar->stop();
+
+    tiempoCorrer=new QTimer();
+    tiempoVolar->stop();
+
+    tiempobobo=new QTimer();
+    tiempobobo->stop();
 }
 
 //Destructor
 Persongraf::~Persongraf()
 {
     delete capucho;
-    delete tiempovuelo;
+    delete tiempoVolar;
     delete tiempoCorrer;
     delete tiempobobo;
 }
@@ -55,28 +65,66 @@ void Persongraf::actualizar(float dt)
     setPos(capucho->getPx(),capucho->getPy());
 }
 
+void Persongraf::pararTiempos()
+{
+    tiempobobo->stop();
+    tiempoCorrer->stop();
+    tiempoVolar->stop();
+}
+
+
+
+
+
 void Persongraf::volar()
 {
 
-    tiempovuelo=new QTimer();
-    tiempovuelo->start(100);
-    connect(tiempovuelo,&QTimer::timeout,this,&Persongraf::moverPer);
+    tiempoVolar->start(1000*0.1);
+    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer);
 
 }
 
 void Persongraf::correr()
 {
-    tiempoCorrer=new QTimer();
-    tiempoCorrer->start(100);
+//    tiempoCorrer=new QTimer();
+    tiempoCorrer->start(1000*0.1);
     connect(tiempoCorrer,&QTimer::timeout,this,&Persongraf::moviCorrer);
 }
 
 void Persongraf::aturdir()
 {
-    tiempobobo=new QTimer();
-    tiempobobo->start(100);
+//    tiempobobo=new QTimer();
+    tiempobobo->start(1000*0.1);
     connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido);
 }
+
+void Persongraf::volar2()
+{
+    tiempoVolar->start(1000*0.1);
+    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer2);
+}
+
+void Persongraf::correr2()
+{
+    tiempoCorrer->start(1000*0.1);
+    connect(tiempoCorrer,&QTimer::timeout,this,&Persongraf::moviCorrer2);
+}
+
+void Persongraf::aturdir2()
+{
+    tiempobobo->start(1000*0.1);
+    connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido2);
+}
+
+
+
+
+
+
+
+
+
+
 
 void Persongraf::moviCorrer()
 {
@@ -106,27 +154,8 @@ void Persongraf::moviCorrer()
         imagencorrer++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho5.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho6.png");
         imagencorrer=1;
-    }
-}
-
-void Persongraf::moviAturdido()
-{
-    if(imagenAturdido==1){
-
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho1.png");
-       imagenAturdido++;
-      }
-    else if(imagenAturdido==2){
-
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho2.png");
-        imagenAturdido++;
-    }
-    else{
-
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho3.png");
-        imagenAturdido=1;
     }
 }
 
@@ -147,3 +176,92 @@ void Persongraf::moverPer()
         imagenvolar=1;
     }
 }
+void Persongraf::moviAturdido()
+{
+    if(imagenAturdido==1){
+
+        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho1.png");
+       imagenAturdido++;
+      }
+    else if(imagenAturdido==2){
+
+        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho2.png");
+        imagenAturdido++;
+    }
+    else{
+
+        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho3.png");
+        imagenAturdido=1;
+    }
+}
+
+void Persongraf::moverPer2()
+{
+    if(imagenvolar2==1){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja1.png");
+       imagenvolar2++;
+      }
+    else if(imagenvolar2==2){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja2.png");
+        imagenvolar2++;
+    }
+    else{
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja3.png");
+        imagenvolar2=1;
+    }
+}
+
+void Persongraf::moviCorrer2()
+{
+    if(imagencorrer2==1){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja1.png");
+       imagencorrer2++;
+      }
+    else if(imagencorrer2==2){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja2.png");
+        imagencorrer2++;
+    }
+    else if(imagencorrer2==3){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja3.png");
+        imagencorrer2++;
+    }
+    else if(imagencorrer2==4){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja4.png");
+        imagencorrer2++;
+    }
+    else if(imagencorrer2==5){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja5.png");
+        imagencorrer2++;
+    }
+    else{
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja6.png");
+        imagencorrer2=1;
+    }
+}
+
+void Persongraf::moviAturdido2()
+{
+    if(imagenAturdido2==1){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja1.png");
+       imagenAturdido2++;
+      }
+    else if(imagenAturdido2==2){
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja2.png");
+        imagenAturdido2++;
+    }
+    else{
+
+        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja3.png");
+        imagenAturdido2=1;
+    }
+}
+

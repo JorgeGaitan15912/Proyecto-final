@@ -44,6 +44,7 @@
         <file>Imagenes videojuego_F/Extras/Bonus/B4.png</file>
         <file>Imagenes videojuego_F/Extras/Game over.png</file>
         <file>Imagenes videojuego_F/Fondo/Fondo.png</file>
+        <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
         <file>Imagenes videojuego_F/Muros/Textura3.png</file>
         <file>Imagenes videojuego_F/Ninja/M1/Ninja1.png</file>
         <file>Imagenes videojuego_F/Ninja/M1/Ninja2.png</file>
@@ -87,6 +88,5 @@
         <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
         <file>Imagenes videojuego_F/Trampolines/T1.png</file>
-        <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
     </qresource>
 </RCC>

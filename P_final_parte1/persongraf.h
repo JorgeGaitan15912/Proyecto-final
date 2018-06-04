@@ -22,7 +22,7 @@ public:
     Personaje *getpersonaje();
 
     //Métodos simulación
-    QTimer *tiempovuelo;
+    QTimer *tiempoVolar;
     QTimer *tiempoCorrer;
     QTimer *tiempobobo;
     QPixmap pixmap;
@@ -31,17 +31,31 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     void actualizar(float dt);
+    void pararTiempos();
     int imagenvolar;
     int imagencorrer;
     int imagenAturdido;
+
+    int imagenvolar2;
+    int imagencorrer2;
+    int imagenAturdido2;
+
     void volar();
     void correr();
     void aturdir();
+
+    void volar2();
+    void correr2();
+    void aturdir2();
 
 private slots:
     void moverPer();
     void moviCorrer();
     void moviAturdido();
+
+    void moverPer2();
+    void moviCorrer2();
+    void moviAturdido2();
 
 private:
     //Atributos

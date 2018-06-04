@@ -35,6 +35,7 @@ public:
     void avion();
     void pajaro();
     void muro();
+    void gameOver();
 
     //Bonus
     void cohete();
@@ -45,6 +46,9 @@ public:
     void moverCohete();
     int imagenp;
     int imagenCohe;
+    bool perdio;
+
+    void setPerdio(bool value);
 
 private slots:
     void volar();

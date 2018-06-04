@@ -85,10 +85,6 @@ private:
     QTimer *timer;
     QTimer *tiempoJuego;
     QTimer *tiempoAviones;
-    QTimer *tiempoPajaros;
-    QTimer *tiempoMuros;
-    QTimer *tiempoCohetes;
-    QTimer *tiempoTrampolines;
     int min,seg;
 
     QGraphicsScene *scene;
@@ -104,9 +100,11 @@ private:
     //QList <QString> cargar;
 
     Persongraf *person;
-    Persongraf *person2;
+    itemgraf *gameOver;
 
     bool dosjugadores;
+    bool jugador2;
+    int vidas;
     int cont;
 
     int numAviones;
