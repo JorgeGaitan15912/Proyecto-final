@@ -31,7 +31,8 @@ SOURCES += \
     item.cpp \
     itemgraf.cpp \
     jugabilidad.cpp \
-    menu.cpp
+    menu.cpp \
+    control_de_acceso.cpp
 
 HEADERS += \
         juego.h \
@@ -40,11 +41,13 @@ HEADERS += \
     item.h \
     itemgraf.h \
     jugabilidad.h \
-    menu.h
+    menu.h \
+    control_de_acceso.h
 
 FORMS += \
         juego.ui \
-    menu.ui
+    menu.ui \
+    control_de_acceso.ui
 
 RESOURCES += \
     imagenes.qrc

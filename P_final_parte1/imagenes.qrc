@@ -37,7 +37,6 @@
         <file>Imagenes videojuego_F/Cohetes/C2.png</file>
         <file>Imagenes videojuego_F/Cohetes/C3.png</file>
         <file>Imagenes videojuego_F/Cohetes/C4.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/Inicio.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B1.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B2.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B3.png</file>
@@ -88,5 +87,10 @@
         <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
         <file>Imagenes videojuego_F/Trampolines/T1.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Inicio-01.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P4.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P3.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P2.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P1.png</file>
     </qresource>
 </RCC>
