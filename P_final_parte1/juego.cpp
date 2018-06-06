@@ -437,23 +437,23 @@ void Juego::colisiones(Persongraf *a)
         }
     }
 
-//    //Colisión con los muros
-//    for(int i=0; i<muros.length(); i++){
-//        if(a->collidesWithItem(muros.at(i))){
-//            if(jugador2){
-//                person->pararTiempos();
-//                person->aturdir2();
-//                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
-//                person->getpersonaje()->setVx(0);
-//            }
-//            else{
-//                person->pararTiempos();
-//                person->aturdir();
-//                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
-//                person->getpersonaje()->setVx(0);
-//            }
-//        }
-//    }
+    //Colisión con los muros
+    for(int i=0; i<muros.length(); i++){
+        if(a->collidesWithItem(muros.at(i))){
+            if(jugador2){
+                person->pararTiempos();
+                person->aturdir2();
+                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                person->getpersonaje()->setVx(0);
+            }
+            else{
+                person->pararTiempos();
+                person->aturdir();
+                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                person->getpersonaje()->setVx(0);
+            }
+        }
+    }
 
     //Colisión con los cohetes
     for(int i=0; i<cohetes.length(); i++){
