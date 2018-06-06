@@ -53,33 +53,26 @@ void menu::on_Cargar_clicked()
             info=info.remove(0,n+1);
         }
 
-    //    float px=cargar.at(0).toFloat();
-    //    float py=cargar.at(1).toFloat();
-    //    float vx=cargar.at(2).toFloat();
-    //    float vy=cargar.at(3).toFloat();
-
         juego1->personx= cargar.at(0).toFloat();
         juego1->persony= cargar.at(1).toFloat();
         juego1->personvx= cargar.at(2).toFloat();
         juego1->personvy=cargar.at(3).toFloat();
-    //    juego1->getPerson()->getpersonaje()->setVx(cargar.at(2).toFloat());
-    //    juego1->getPerson()->getpersonaje()->setVy(cargar.at(3).toFloat());
+        juego1->puntaje=cargar.at(4).toInt();
+        juego1->min=cargar.at(5).toInt();
+        juego1->seg=cargar.at(6).toInt();
+
+//        cout << cargar.at(0).toFloat() << endl;
+//        cout << cargar.at(1).toFloat() << endl;
+//        cout << cargar.at(2).toFloat() << endl;
+//        cout << cargar.at(3).toFloat() << endl;
+//        cout << cargar.at(4).toInt() << endl;
+//        cout << cargar.at(5).toInt() << endl;
+//        cout << cargar.at(6).toInt() << endl;
 
         juego1->show();
+
         //// FALTA MIRARLO BIEN
         juego1->setDosjugadores(false);
         this->close();
-
-    //    cargar.at(0).toFloat();
-    //    cargar.at(1).toFloat();
-    //    cargar.at(2).toFloat();
-    //    cargar.at(3).toFloat();
-
-
-
-    //    cout << "Px: " << px << endl;
-    //    cout << "Py: " << py << endl;
-    //    cout << "Vx: " << vx << endl;
-    //    cout << "Vy: " << vy << endl;
 
 }

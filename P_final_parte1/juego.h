@@ -63,6 +63,7 @@ public:
     float persony;
     float personvx;
     float personvy;
+    int min=0,seg=0,puntaje=0;
 
 
 private slots:
@@ -80,13 +81,15 @@ private slots:
 
     void keyPressEvent(QKeyEvent* event);
 
+    void on_Puntaje_overflow();
+
 private:
     Ui::Juego *ui;
 
     QTimer *timer;
     QTimer *tiempoJuego;
     QTimer *tiempoObjetos;
-    int min,seg;
+
 
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
