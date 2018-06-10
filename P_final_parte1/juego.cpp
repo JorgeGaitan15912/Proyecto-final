@@ -227,7 +227,7 @@ void Juego::reiniciar()
 void Juego::letrero()
 {
     gameOver->setPos(person->getpersonaje()->getPx(),person->getpersonaje()->getPy()+50);
-    gameOver->setPerdio(true);
+//    gameOver->setPerdio(true);
     gameOver->gameOver();
     scene->addItem(gameOver);
 }
@@ -577,7 +577,7 @@ void Juego::murosAzar()
     px=rand() % 1000+500;
     if(muros.length()<numMuros){
         muros.append(new itemgraf(person->getpersonaje()->getPx()+px,60));
-        muros.last()->setMuro(true);
+//        muros.last()->setMuro(true);
         muros.last()->muro();
         muros.last()->getItem()->setVel(0,0);
         scene->addItem(muros.last());

@@ -65,6 +65,7 @@ private slots:
 
 private:
     //Atributos
+    int w=50, h=50;
     Personaje *capucho;
 };
 

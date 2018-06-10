@@ -48,8 +48,7 @@ Personaje *Persongraf::getpersonaje()
 //Métodos simulación
 QRectF Persongraf::boundingRect() const
 {
-//    return QRectF(900,60,40,50);
-    return QRectF(0,0,63,65);
+    return QRectF(0,0,w,h);
 }
 
 void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -57,7 +56,6 @@ void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     painter->drawPixmap(boundingRect(),pixmap,pixmap.rect());
 
 }
-
 
 void Persongraf::actualizar(float dt)
 {
@@ -80,17 +78,12 @@ void Persongraf::pararTiempos()
     tiempoVolar2->stop();
 }
 
-
-
-
-
 void Persongraf::volar()
 {
 //    pararTiempos();
 //    tiempoVolar=new QTimer();
     tiempoVolar->start(1000*DT);
     connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer);
-
 }
 
 void Persongraf::correr()
@@ -108,6 +101,7 @@ void Persongraf::aturdir()
     tiempobobo->start(1000*DT);
     connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido);
 }
+
 
 void Persongraf::volar2()
 {
@@ -134,17 +128,9 @@ void Persongraf::aturdir2()
 }
 
 
-
-
-
-
-
-
-
-
-
 void Persongraf::moviCorrer()
 {
+    w=62 ; h=65;
     if(imagencorrer==1){
 
         pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr1.png");
@@ -178,106 +164,113 @@ void Persongraf::moviCorrer()
 
 void Persongraf::moverPer()
 {
+    w=72 ; h=50;
     if(imagenvolar==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M1/Cacupho1.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Volar/Volar1.png");
        imagenvolar++;
       }
     else if(imagenvolar==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M1/Cacupho2.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Volar/Volar2.png");
         imagenvolar++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M1/Cacupho3.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Volar/Volar3.png");
         imagenvolar=1;
     }
 }
+
 void Persongraf::moviAturdido()
 {
+    w=46 ; h=68;
     if(imagenAturdido==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho1.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Aturdido/Aturdido1.png");
        imagenAturdido++;
       }
     else if(imagenAturdido==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho2.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Aturdido/Aturdido2.png");
         imagenAturdido++;
     }
     else{
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M3/Cacupho3.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Aturdido/Aturdido3.png");
         imagenAturdido=1;
     }
 }
 
+
 void Persongraf::moverPer2()
 {
+    w=69 ; h=51;
     if(imagenvolar2==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja1.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Volar/Volar1.png");
        imagenvolar2++;
       }
     else if(imagenvolar2==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja2.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Volar/Volar2.png");
         imagenvolar2++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M1/Ninja3.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Volar/Volar3.png");
         imagenvolar2=1;
     }
 }
 
 void Persongraf::moviCorrer2()
 {
+    w=63 ; h=65;
     if(imagencorrer2==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja1.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr1.png");
        imagencorrer2++;
       }
     else if(imagencorrer2==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja2.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr2.png");
         imagencorrer2++;
     }
     else if(imagencorrer2==3){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja3.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr3.png");
         imagencorrer2++;
     }
     else if(imagencorrer2==4){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja4.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr4.png");
         imagencorrer2++;
     }
     else if(imagencorrer2==5){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja5.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr5.png");
         imagencorrer2++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M2/Ninja6.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Correr/Correr6.png");
         imagencorrer2=1;
     }
 }
 
 void Persongraf::moviAturdido2()
 {
+    w=44 ; h=65;
     if(imagenAturdido2==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja1.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Aturdido/Aturdido1.png");
        imagenAturdido2++;
       }
     else if(imagenAturdido2==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja2.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Aturdido/Aturdido2.png");
         imagenAturdido2++;
     }
     else{
 
-        pixmap.load(":/Imagenes videojuego_F/Ninja/M3/Ninja3.png");
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Aturdido/Aturdido3.png");
         imagenAturdido2=1;
     }
 }

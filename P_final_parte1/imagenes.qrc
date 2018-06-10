@@ -1,100 +1,105 @@
 <RCC>
     <qresource prefix="/">
-        <file>Imagenes videojuego_F/Aviones/Aviones.png</file>
+        <file>Imagenes videojuego_F/Avion/Avion.png</file>
+        <file>Imagenes videojuego_F/Capucho/Aturdido/Aturdido1.png</file>
+        <file>Imagenes videojuego_F/Capucho/Aturdido/Aturdido2.png</file>
+        <file>Imagenes videojuego_F/Capucho/Aturdido/Aturdido3.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar1.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar10.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar2.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar3.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar4.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar5.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar6.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar7.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar8.png</file>
+        <file>Imagenes videojuego_F/Capucho/Chocar/Chocar9.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr1.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr2.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr3.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr4.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr5.png</file>
         <file>Imagenes videojuego_F/Capucho/Correr/Correr6.png</file>
-        <file>Imagenes videojuego_F/Capucho/M1/Cacupho1.png</file>
-        <file>Imagenes videojuego_F/Capucho/M1/Cacupho2.png</file>
-        <file>Imagenes videojuego_F/Capucho/M1/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M3/Cacupho1.png</file>
-        <file>Imagenes videojuego_F/Capucho/M3/Cacupho2.png</file>
-        <file>Imagenes videojuego_F/Capucho/M3/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho1.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho10.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho2.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho4.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho5.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho6.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho7.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho8.png</file>
-        <file>Imagenes videojuego_F/Capucho/M4/Cacupho9.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho1.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho10.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho2.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho4.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho5.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho6.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho7.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho8.png</file>
-        <file>Imagenes videojuego_F/Capucho/M5/Cacupho9.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C1.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C2.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C3.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C4.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar1.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar10.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar2.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar3.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar4.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar5.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar6.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar7.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar8.png</file>
+        <file>Imagenes videojuego_F/Capucho/Saltar/Saltar9.png</file>
+        <file>Imagenes videojuego_F/Capucho/Volar/Volar1.png</file>
+        <file>Imagenes videojuego_F/Capucho/Volar/Volar2.png</file>
+        <file>Imagenes videojuego_F/Capucho/Volar/Volar3.png</file>
+        <file>Imagenes videojuego_F/Cohete/C1.png</file>
+        <file>Imagenes videojuego_F/Cohete/C2.png</file>
+        <file>Imagenes videojuego_F/Cohete/C3.png</file>
+        <file>Imagenes videojuego_F/Cohete/C4.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Fallaste.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Felicidades.png</file>
         <file>Imagenes videojuego_F/Control de acceso/Inicio-01.png</file>
         <file>Imagenes videojuego_F/Control de acceso/P1.png</file>
         <file>Imagenes videojuego_F/Control de acceso/P2.png</file>
         <file>Imagenes videojuego_F/Control de acceso/P3.png</file>
         <file>Imagenes videojuego_F/Control de acceso/P4.png</file>
-        <file>Imagenes videojuego_F/Extras/Bonus/B1.png</file>
-        <file>Imagenes videojuego_F/Extras/Bonus/B2.png</file>
-        <file>Imagenes videojuego_F/Extras/Bonus/B3.png</file>
-        <file>Imagenes videojuego_F/Extras/Bonus/B4.png</file>
+        <file>Imagenes videojuego_F/Extras/Monedas/M1.png</file>
+        <file>Imagenes videojuego_F/Extras/Monedas/M2.png</file>
+        <file>Imagenes videojuego_F/Extras/Monedas/M3.png</file>
+        <file>Imagenes videojuego_F/Extras/Monedas/M4.png</file>
         <file>Imagenes videojuego_F/Extras/Game over.png</file>
+        <file>Imagenes videojuego_F/Extras/Guardar.png</file>
+        <file>Imagenes videojuego_F/Extras/Items acceso.png</file>
+        <file>Imagenes videojuego_F/Extras/Pausar.png</file>
+        <file>Imagenes videojuego_F/Extras/Reiniciar.png</file>
+        <file>Imagenes videojuego_F/Extras/Tablero puntaje.png</file>
         <file>Imagenes videojuego_F/Fondo/Ganador1.png</file>
         <file>Imagenes videojuego_F/Fondo/Ganador2.png</file>
         <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
         <file>Imagenes videojuego_F/Fondo/Puntaje.png</file>
-        <file>Imagenes videojuego_F/Muros/Textura3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M1/Ninja1.png</file>
-        <file>Imagenes videojuego_F/Ninja/M1/Ninja2.png</file>
-        <file>Imagenes videojuego_F/Ninja/M1/Ninja3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja1.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja2.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja4.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja5.png</file>
-        <file>Imagenes videojuego_F/Ninja/M2/Ninja6.png</file>
-        <file>Imagenes videojuego_F/Ninja/M3/Ninja1.png</file>
-        <file>Imagenes videojuego_F/Ninja/M3/Ninja2.png</file>
-        <file>Imagenes videojuego_F/Ninja/M3/Ninja3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja1.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja10.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja2.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja4.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja5.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja6.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja7.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja8.png</file>
-        <file>Imagenes videojuego_F/Ninja/M4/Ninja9.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja1.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja10.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja2.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja3.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja4.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja5.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja6.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja7.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja8.png</file>
-        <file>Imagenes videojuego_F/Ninja/M5/Ninja9.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_1.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_2.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_3.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_4.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_5.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_6.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_7.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
-        <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
-        <file>Imagenes videojuego_F/Trampolines/T1.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/Felicidades.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/Fallaste.png</file>
+        <file>Imagenes videojuego_F/Muro/Muro.png</file>
+        <file>Imagenes videojuego_F/Ninja/Aturdido/Aturdido1.png</file>
+        <file>Imagenes videojuego_F/Ninja/Aturdido/Aturdido2.png</file>
+        <file>Imagenes videojuego_F/Ninja/Aturdido/Aturdido3.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar1.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar10.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar2.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar3.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar4.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar5.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar6.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar7.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar8.png</file>
+        <file>Imagenes videojuego_F/Ninja/Chocar/Chocar9.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr1.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr2.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr3.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr4.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr5.png</file>
+        <file>Imagenes videojuego_F/Ninja/Correr/Correr6.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar1.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar10.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar2.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar3.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar4.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar5.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar6.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar7.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar8.png</file>
+        <file>Imagenes videojuego_F/Ninja/Saltar/Saltar9.png</file>
+        <file>Imagenes videojuego_F/Ninja/Volar/Volar1.png</file>
+        <file>Imagenes videojuego_F/Ninja/Volar/Volar2.png</file>
+        <file>Imagenes videojuego_F/Ninja/Volar/Volar3.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P1.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P2.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P3.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P4.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P5.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P6.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P7.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P8.png</file>
+        <file>Imagenes videojuego_F/Pajaro/P9.png</file>
+        <file>Imagenes videojuego_F/Trampolin/Trampolin.png</file>
     </qresource>
 </RCC>

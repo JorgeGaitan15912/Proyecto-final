@@ -14,7 +14,6 @@ item::item(float x, float y)
 item::~item()
 {}
 
-
 //Métodos -> get, set
 float item::getPx() const
 {return px;}

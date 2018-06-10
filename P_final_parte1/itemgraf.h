@@ -5,10 +5,10 @@
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
-#include <iostream>
-#include "item.h"
 #include <QTimer>
 #include <QObject>
+#include <iostream>
+#include "item.h"
 
 #define DT 0.1
 using namespace std;
@@ -35,22 +35,23 @@ public:
     //Obstaculos
     void avion();
     void muro();
+
     void gameOver();
 
     //Bonus
     void trampolin();
 
-    //controlan las animaciones
+    //Controlan las animaciones
     void moverpajaro();
     void moverCohete();
     int imagenp;
     int imagenCohe;
-    bool perdio;
-    bool Tmuro;
 
-    void setPerdio(bool value);
+//    bool perdio;
+//    bool Tmuro;
 
-    void setMuro(bool value);
+//    void setPerdio(bool value);
+//    void setMuro(bool value);
 
 private slots:
     void volar();
@@ -58,6 +59,8 @@ private slots:
 
 private:
     //Atributos
+    int w=50, h=50;
+
     QPixmap pixmap;
     item *obstaculo;
 
