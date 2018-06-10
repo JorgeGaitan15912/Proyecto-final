@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QPixmap>
 #include <QPushButton>
+#include <QTimer>
 
 #include "menu.h"
 
@@ -26,14 +27,18 @@ public:
     int correctas=0;
     int res=0;
     int preg=1;
+    int OK=0;
 
     QPixmap Imag_control;
+    QTimer *fin;
 
     void control();
+    void ocultar();
     void reordenar(int op1_y, int op2_y , int op3_y, int op4_y);
 
 private slots:
     void on_Iniciar_clicked();
+    void final ();
 
 private:
     Ui::Control_de_acceso *ui;

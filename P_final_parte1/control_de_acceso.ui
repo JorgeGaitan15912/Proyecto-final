@@ -97,6 +97,33 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="Correctas">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>400</y>
+     <width>411</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>Control_acceso</zorder>
+  <zorder>Op1</zorder>
+  <zorder>Op2</zorder>
+  <zorder>Op3</zorder>
+  <zorder>Op4</zorder>
+  <zorder>Iniciar</zorder>
+  <zorder>Correctas</zorder>
  </widget>
  <resources>
   <include location="imagenes.qrc"/>

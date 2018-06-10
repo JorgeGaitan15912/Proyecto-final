@@ -12,15 +12,14 @@ Juego::Juego(QWidget *parent) :
     ui->setupUi(this);
 
     //Fondo del graphicsView
-
     QPixmap mapa;
 //    mapa.load(":/Imagenes videojuego_F/Fondo/Fondo completo.png");   //Añade el fondo
     scene=new QGraphicsScene(this);
-    scene->setSceneRect(0,0,1000,500);
+    scene->setSceneRect(80,40,1000,500);
     //crea la escene
     ui->graphicsView->setScene(scene);
-    //pone fondo a la escene
-     ui->graphicsView->setBackgroundBrush(QBrush(mapa));
+    //pone fondo a la escena
+    ui->graphicsView->setBackgroundBrush(QBrush(mapa));
     ui->graphicsView->scale(1,-1);          //pone la escena al "derecho"
 
 
@@ -36,17 +35,19 @@ Juego::Juego(QWidget *parent) :
 
 
     //Coneccion de señales a SLOTS
-    connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));   
+    connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
+
     connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(contarTiempo()));
-     connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(on_Puntaje_overflow()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(on_Puntaje_overflow()));
+
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(avionesAzar()));
-    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(murosAzar()));
+    connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(cohetesAzar()));
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
 
     //Asignando condiciones iniciales al personaje
-        inicial();
+    inicial();
 
     //controla la imagen del personaje
     jugador2=false;
@@ -59,10 +60,11 @@ Juego::Juego(QWidget *parent) :
 
 
     //controla la pausa del juego e inicializa el menu de pause
-        cont=0;
-       gameOver=new itemgraf(0,0);
+    cont=0;
+    gameOver=new itemgraf(0,0);
+
     //Semilla para generar objetos al azar
-        srand(time(NULL));
+    srand(time(NULL));
 }
 
 
@@ -133,18 +135,20 @@ void Juego::actualizar()
     }
 
     niveles();
+
     //Focus personaje
     ScenePerson(person->getpersonaje());
     person->actualizar(DT);
     colisiones(person);
 
+    //Guardar datos
     fstream escritura;
     escritura.open("Guardar.txt",ios::out);
     escritura<<person->getpersonaje()->getPx()<<"\t"
-             <<person->getpersonaje()->getPy()<<"\t"
-             <<person->getpersonaje()->getVx()<<"\t"
-             <<person->getpersonaje()->getVy()<<"\t"
-             << puntaje << "\t" << min << "\t" << seg;
+            <<person->getpersonaje()->getPy()<<"\t"
+           <<person->getpersonaje()->getVx()<<"\t"
+          <<person->getpersonaje()->getVy()<<"\t"
+         << puntaje << "\t" << min << "\t" << seg;
 
     escritura.close();
 
@@ -162,10 +166,10 @@ void Juego::keyPressEvent(QKeyEvent *event)
             cont=0;
         }
         else{
-         timer->stop();
-         tiempoJuego->stop();
-         tiempoObjetos->stop();
-         cont++;
+            timer->stop();
+            tiempoJuego->stop();
+            tiempoObjetos->stop();
+            cont++;
         }
 
     }
@@ -192,7 +196,7 @@ void Juego::contarTiempo()
 
 void Juego::inicial()
 {
-    personx=10;
+    personx=60;
     persony=400;
     personvx=200;
     personvy=60;
@@ -210,7 +214,7 @@ void Juego::reiniciar()
     quitarelementos();
 
     //Limpiando listas
-    borrarelementos();    
+    borrarelementos();
 
     //Creando nuevamente la escena
     scene->setSceneRect(0,0,1000,500);
@@ -287,14 +291,14 @@ void Juego::multijugador()
     if(dosjugadores){
         if(jugador2){
 
-        //Agrega el suelo
-        linea=new QGraphicsLineItem(0,60,60000,0);
-        scene->addItem(linea);
+            //Agrega el suelo
+            linea=new QGraphicsLineItem(0,60,60000,0);
+            scene->addItem(linea);
 
-        //Agrega el personaje
-        person=new Persongraf(personx,persony,personvx,personvy);
-        person->correr2();
-        scene->addItem(person);
+            //Agrega el personaje
+            person=new Persongraf(personx,persony,personvx,personvy);
+            person->correr2();
+            scene->addItem(person);
         }
         else{
             //Agrega el suelo
@@ -346,8 +350,8 @@ void Juego::niveles()
 //Focus personaje
 void Juego::ScenePerson(Personaje *b)
 {
-        scene->setSceneRect(b->getPx(),b->getPy()-250,1000,250);
-        ui->graphicsView->setScene(scene);
+    scene->setSceneRect(b->getPx(),b->getPy()-250,1000,250);
+    ui->graphicsView->setScene(scene);
 
 
 
@@ -405,7 +409,7 @@ void Juego::colisiones(Persongraf *a)
                     tiempoJuego->stop();
                     timer->stop();
                     jugador2=false;
-                 }
+                }
                 else{
                     jugador2=true;
                     reiniciar();
@@ -475,26 +479,26 @@ void Juego::colisiones(Persongraf *a)
     }
 
     //Colisión con los trampolines
-   for(int i=0; i<trampolines.length(); i++){
+    for(int i=0; i<trampolines.length(); i++){
         if(a->collidesWithItem(trampolines.at(i))){
 
             person->getpersonaje()->setVy(person->getpersonaje()->getVy()*-1);
 
-                if(jugador2){
-                    person->pararTiempos();
-                    person->volar2();
+            if(jugador2){
+                person->pararTiempos();
+                person->volar2();
 
-                }
-                else{
-                    person->pararTiempos();
-                    person->volar();
-
-
-                }
             }
+            else{
+                person->pararTiempos();
+                person->volar();
 
+
+            }
         }
+
     }
+}
 
 
 

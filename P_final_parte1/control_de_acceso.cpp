@@ -12,12 +12,18 @@ Control_de_acceso::Control_de_acceso(QWidget *parent) :
     ui->Op2->hide();
     ui->Op3->hide();
     ui->Op4->hide();
+
+    fin=new QTimer(this);
+    fin->stop();
+
+    connect(fin,SIGNAL(timeout()),this,SLOT(final()));
 }
 
 Control_de_acceso::~Control_de_acceso()
 {
     delete ui;
     delete menuI;
+    delete fin;
 }
 
 void Control_de_acceso::reordenar(int op1_y, int op2_y , int op3_y, int op4_y)
@@ -82,32 +88,72 @@ void Control_de_acceso::control()
     }
 
     if(preg==5){
+
+        QString total;
+        ocultar();
         if(res==3){correctas++;}
 
         if(correctas>2){
+
+            total = QString::number(correctas);
+            ui->Correctas->setText("Respondiste bien " + total + " preguntas");
             cout << "Respondiste bien " << correctas << " preguntas, " << "puedes jugar" << endl;
-            this->close();
-            menuI->show();
+
+            OK=1;
+            Imag_control.load(":/Imagenes videojuego_F/Control de acceso/Felicidades.png");
+            ui->Control_acceso->setPixmap(Imag_control);
+
         }
 
         else{
+
+            total = QString::number(4-correctas);
+            ui->Correctas->setText("Respondiste mal " + total + " preguntas");
             cout<< "Respondiste mal " << 4-correctas << " preguntas, vuelve a intentar" << endl;
-            this->close();
-        }
+
+            OK=0;
+            Imag_control.load(":/Imagenes videojuego_F/Control de acceso/Fallaste.png");
+            ui->Control_acceso->setPixmap(Imag_control);
 
         }
+        preg++;
+    }
 
-//    cout << "Pregunta: " << preg << endl;
-//    cout << "Respuesta: " << res << endl;
-//    cout << "Correctas: " << correctas << endl;
+    if (preg==6){
+        fin->start(4000);
+    }
+
     preg++;
+}
 
+void Control_de_acceso::ocultar()
+{
+    ui->Op1->hide();
+    ui->Op2->hide();
+    ui->Op3->hide();
+    ui->Op4->hide();
+    ui->Iniciar->hide();
 }
 
 void Control_de_acceso::on_Iniciar_clicked()
 {
-    ui->Iniciar->setText("Siguente");
+    ui->Iniciar->setText("Siguiente");
     control();
 
+}
+
+void Control_de_acceso::final()
+{
+    if(OK==1){
+        this->close();
+        menuI->show();
+        fin->stop();
+
+    }
+
+    if(OK==0){
+        this->close();
+        fin->stop();
+    }
 }
 

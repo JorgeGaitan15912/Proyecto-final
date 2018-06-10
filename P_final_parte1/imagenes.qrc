@@ -1,15 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>Imagenes videojuego_F/Aviones/Aviones.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr1.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr2.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr3.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr4.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr5.png</file>
+        <file>Imagenes videojuego_F/Capucho/Correr/Correr6.png</file>
         <file>Imagenes videojuego_F/Capucho/M1/Cacupho1.png</file>
         <file>Imagenes videojuego_F/Capucho/M1/Cacupho2.png</file>
         <file>Imagenes videojuego_F/Capucho/M1/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho1.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho2.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho3.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho4.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho5.png</file>
-        <file>Imagenes videojuego_F/Capucho/M2/Cacupho6.png</file>
         <file>Imagenes videojuego_F/Capucho/M3/Cacupho1.png</file>
         <file>Imagenes videojuego_F/Capucho/M3/Cacupho2.png</file>
         <file>Imagenes videojuego_F/Capucho/M3/Cacupho3.png</file>
@@ -33,11 +33,24 @@
         <file>Imagenes videojuego_F/Capucho/M5/Cacupho7.png</file>
         <file>Imagenes videojuego_F/Capucho/M5/Cacupho8.png</file>
         <file>Imagenes videojuego_F/Capucho/M5/Cacupho9.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C1.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C2.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C3.png</file>
+        <file>Imagenes videojuego_F/Cohetes/C4.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Inicio-01.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P1.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P2.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P3.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/P4.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B1.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B2.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B3.png</file>
         <file>Imagenes videojuego_F/Extras/Bonus/B4.png</file>
         <file>Imagenes videojuego_F/Extras/Game over.png</file>
+        <file>Imagenes videojuego_F/Fondo/Ganador1.png</file>
+        <file>Imagenes videojuego_F/Fondo/Ganador2.png</file>
+        <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
+        <file>Imagenes videojuego_F/Fondo/Puntaje.png</file>
         <file>Imagenes videojuego_F/Muros/Textura3.png</file>
         <file>Imagenes videojuego_F/Ninja/M1/Ninja1.png</file>
         <file>Imagenes videojuego_F/Ninja/M1/Ninja2.png</file>
@@ -81,15 +94,7 @@
         <file>Imagenes videojuego_F/Pajaros/P_8.png</file>
         <file>Imagenes videojuego_F/Pajaros/P_9.png</file>
         <file>Imagenes videojuego_F/Trampolines/T1.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/Inicio-01.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/P4.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/P3.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/P2.png</file>
-        <file>Imagenes videojuego_F/Control de acceso/P1.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C1.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C2.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C3.png</file>
-        <file>Imagenes videojuego_F/Cohetes/C4.png</file>
-        <file>Imagenes videojuego_F/Fondo/Inicio.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Felicidades.png</file>
+        <file>Imagenes videojuego_F/Control de acceso/Fallaste.png</file>
     </qresource>
 </RCC>

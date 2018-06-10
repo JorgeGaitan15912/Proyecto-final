@@ -49,7 +49,7 @@ Personaje *Persongraf::getpersonaje()
 QRectF Persongraf::boundingRect() const
 {
 //    return QRectF(900,60,40,50);
-    return QRectF(0,0,50,50);
+    return QRectF(0,0,63,65);
 }
 
 void Persongraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -147,31 +147,31 @@ void Persongraf::moviCorrer()
 {
     if(imagencorrer==1){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho1.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr1.png");
        imagencorrer++;
       }
     else if(imagencorrer==2){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho2.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr2.png");
         imagencorrer++;
     }
     else if(imagencorrer==3){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho3.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr3.png");
         imagencorrer++;
     }
     else if(imagencorrer==4){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho4.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr4.png");
         imagencorrer++;
     }
     else if(imagencorrer==5){
 
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho5.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr5.png");
         imagencorrer++;
     }
     else{
-        pixmap.load(":/Imagenes videojuego_F/Capucho/M2/Cacupho6.png");
+        pixmap.load(":/Imagenes videojuego_F/Capucho/Correr/Correr6.png");
         imagencorrer=1;
     }
 }
