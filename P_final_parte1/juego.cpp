@@ -93,7 +93,6 @@ void Juego::on_Iniciar_clicked()
 
     timer->start(1000*DT);
     tiempoJuego->start(1000);
-
     tiempoObjetos->start(2800);
 }
 
@@ -181,6 +180,14 @@ void Juego::keyPressEvent(QKeyEvent *event)
         }
 
     }
+
+    if (event->key() == Qt::Key_S){
+
+        if(person->getpersonaje()->getPy()>=60){
+
+            person->getpersonaje()->setPy(person->getpersonaje()->getPy()-10);
+        }
+    }
 }
 
 void Juego::contarTiempo()
@@ -217,7 +224,7 @@ void Juego::reiniciar()
     borrarelementos();
 
     //Creando nuevamente la escena
-    scene->setSceneRect(0,0,1000,500);
+    scene->setSceneRect(80,40,1000,500);
 
     //Asignando condiciones iniciales al personaje
     inicial();
@@ -259,9 +266,9 @@ void Juego::quitarelementos()
     scene->removeItem(gameOver);
     scene->removeItem(linea);
 }
+
 void Juego::borrarelementos()
 {
-
     aviones.clear();
     pajaros.clear();
     muros.clear();
@@ -269,8 +276,6 @@ void Juego::borrarelementos()
     trampolines.clear();
     delete person;
     delete linea;
-
-
 }
 
 void Juego::individual()
@@ -350,11 +355,31 @@ void Juego::niveles()
 //Focus personaje
 void Juego::ScenePerson(Personaje *b)
 {
-    scene->setSceneRect(b->getPx(),b->getPy()-250,1000,250);
-    ui->graphicsView->setScene(scene);
+////Focus modificado MEJORAR
+    if(person->getpersonaje()->getPy()>=500){
+        if (person->getpersonaje()->getPy()<=1250){
+            scene->setSceneRect(b->getPx(),b->getPy()-250,1000,500);
+            ui->graphicsView->setScene(scene);
+        }
 
+        if(person->getpersonaje()->getPy()>=1250){
+            scene->setSceneRect(b->getPx(),b->getPy()-250,1000,175);
+            ui->graphicsView->setScene(scene);
+        }
+    }
 
+    else{
+        scene->setSceneRect(b->getPx(),40,1000,500);
+        ui->graphicsView->setScene(scene);
+    }
 
+    if (person->getpersonaje()->getPy()>=1400){
+        person->getpersonaje()->setPy(1400);
+    }
+
+////Focus original
+//    scene->setSceneRect(b->getPx(),b->getPy()-250,1000,250);
+//    ui->graphicsView->setScene(scene);
 }
 
 //Colisiones con los objetos
@@ -367,8 +392,8 @@ void Juego::colisiones(Persongraf *a)
         a->setPos(a->getpersonaje()->getPx(),60);
         if(dosjugadores){
             if(jugador2){
-                scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
-                ui->graphicsView->setScene(scene);
+//                scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
+//                ui->graphicsView->setScene(scene);
                 a->getpersonaje()->setVy(0);
                 a->getpersonaje()->setVx(0);
                 letrero();
@@ -383,8 +408,8 @@ void Juego::colisiones(Persongraf *a)
             }
         }
         else{
-            scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
-            ui->graphicsView->setScene(scene);
+//            scene->setSceneRect(a->getpersonaje()->getPx()-250,60,500,500);
+//            ui->graphicsView->setScene(scene);
             a->getpersonaje()->setVy(0);
             a->getpersonaje()->setVx(0);
             letrero();
@@ -447,13 +472,13 @@ void Juego::colisiones(Persongraf *a)
             if(jugador2){
                 person->pararTiempos();
                 person->aturdir2();
-                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                //person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
                 person->getpersonaje()->setVx(0);
             }
             else{
                 person->pararTiempos();
                 person->aturdir();
-                person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
+                //person->getpersonaje()->setPx(muros.at(i)->getItem()->getPx()-20);
                 person->getpersonaje()->setVx(0);
             }
         }
@@ -482,6 +507,7 @@ void Juego::colisiones(Persongraf *a)
     for(int i=0; i<trampolines.length(); i++){
         if(a->collidesWithItem(trampolines.at(i))){
 
+//            person->getpersonaje()->setVx(person->getpersonaje()->getVx()*1/2);
             person->getpersonaje()->setVy(person->getpersonaje()->getVy()*-1);
 
             if(jugador2){
@@ -587,6 +613,8 @@ void Juego::murosAzar()
         muros.pop_front();
     }
 }
+
+
 //
 Persongraf *Juego::getPerson() const
 {
