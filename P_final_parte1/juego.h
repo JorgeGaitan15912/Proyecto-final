@@ -46,7 +46,7 @@ public:
     void setDosjugadores(bool value);
 
     //Métodos simulación
-    void inicial();
+    void inicialperson();
     void reiniciar();
 
     void letrero();
@@ -73,6 +73,7 @@ private slots:
 
     void actualizar();
     void contarTiempo(void);
+
     void avionesAzar(void);
     void pajarosAzar(void);
     void murosAzar(void);
@@ -90,7 +91,6 @@ private:
     QTimer *tiempoJuego;
     QTimer *tiempoObjetos;
 
-
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
 
@@ -101,21 +101,20 @@ private:
     QList<itemgraf*> muros;
     QList<itemgraf*> trampolines;
 
-    //QList <QString> cargar;
-
+////QList <QString> cargar;
     Persongraf *person;
     itemgraf *gameOver;
 
     bool dosjugadores;
     bool jugador2;
-    int vidas;
     int cont;
+////    int vidas;
 
     int numAviones;
     int numPajaros;
+    int numMuros;
     int numCohetes;
     int numTrampolines;
-    int numMuros;
 
     void ScenePerson(Personaje*b);
     void colisiones(Persongraf *a);

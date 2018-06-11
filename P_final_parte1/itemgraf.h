@@ -44,16 +44,17 @@ public:
     //Controlan las animaciones
     void moverpajaro();
     void moverCohete();
+
     int imagenp;
     int imagenCohe;
 
-//    bool perdio;
-//    bool Tmuro;
-
-//    void setPerdio(bool value);
-//    void setMuro(bool value);
+////    bool perdio;
+////    bool Tmuro;
+////    void setPerdio(bool value);
+////    void setMuro(bool value);
 
 private slots:
+    //Animaciones
     void volar();
     void propulsion();
 
@@ -64,8 +65,8 @@ private:
     QPixmap pixmap;
     item *obstaculo;
 
-    QTimer *tiempoVuelo;
-    QTimer *tiempoCohete;
+    QTimer *tiempoVuelo; //CAMBIAR NOMBRE
+////    QTimer *tiempoCohete;
 };
 
 #endif // ITEMGRAF_H

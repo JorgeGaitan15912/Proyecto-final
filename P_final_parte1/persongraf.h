@@ -14,7 +14,7 @@ class Persongraf : public QObject, public QGraphicsItem
 public:
     //Constructores
     Persongraf(float x, float y, float vx, float vy);
-    //Persongraf(float x, float y, float r, float m);
+////    Persongraf(float x, float y, float r, float m);
 
     //Destructor
     ~Persongraf();
@@ -23,13 +23,13 @@ public:
     Personaje *getpersonaje();
 
     //Métodos simulación
-    QTimer *tiempoVolar;
-    QTimer *tiempoCorrer;
-    QTimer *tiempobobo;
+    QTimer *tiempoVolar; //CAMBIAR NOMBRE
+////    QTimer *tiempoCorrer;
+////    QTimer *tiempobobo;
 
-    QTimer *tiempoVolar2;
-    QTimer *tiempoCorrer2;
-    QTimer *tiempobobo2;
+////    QTimer *tiempoVolar2;
+////    QTimer *tiempoCorrer2;
+////    QTimer *tiempobobo2;
 
     QPixmap pixmap;
 
@@ -37,7 +37,9 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     void actualizar(float dt);
-    void pararTiempos();
+    void pararTiempos(); //CAMBIAR NOMBRE
+
+    //OPTIMIZAR
     int imagenvolar;
     int imagencorrer;
     int imagenAturdido;
@@ -46,6 +48,7 @@ public:
     int imagencorrer2;
     int imagenAturdido2;
 
+    //OPTIMIZAR
     void volar();
     void correr();
     void aturdir();
@@ -55,6 +58,7 @@ public:
     void aturdir2();
 
 private slots:
+    //Animaciones
     void moverPer();
     void moviCorrer();
     void moviAturdido();

@@ -9,8 +9,10 @@ Personaje::Personaje(float x, float y, float vx, float vy)
 {
     px=x;
     py=y;
+
     Vx=vx;
     Vy=vy;
+
     ay=-9.8;
     ax=0;
 
@@ -65,6 +67,7 @@ void Personaje::actualizar(float dt)
 
     px += Vx*dt + (1/2)*ax*pow(dt,2);
     py +=Vy*dt + (1/2)*ay*pow(dt,2);
+
 //    cout<<"posicion en y "<<py<<endl;
 //    cout<<"posicion en x "<<px<<endl;
 //    cout<<"velocidad en y "<<Vy<<endl;

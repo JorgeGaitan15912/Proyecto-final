@@ -13,12 +13,14 @@ Juego::Juego(QWidget *parent) :
 
     //Fondo del graphicsView
     QPixmap mapa;
-//    mapa.load(":/Imagenes videojuego_F/Fondo/Fondo completo.png");   //Añade el fondo
+    //mapa.load(":/Imagenes videojuego_F/Fondo/Fondo completo.png");   //Añade el fondo
+
+    //Crea la escena
     scene=new QGraphicsScene(this);
     scene->setSceneRect(80,40,1000,500);
-    //crea la escene
     ui->graphicsView->setScene(scene);
-    //pone fondo a la escena
+
+    //Pone fondo a la escena
     ui->graphicsView->setBackgroundBrush(QBrush(mapa));
     ui->graphicsView->scale(1,-1);          //pone la escena al "derecho"
 
@@ -34,11 +36,11 @@ Juego::Juego(QWidget *parent) :
     tiempoObjetos->stop();
 
 
-    //Coneccion de señales a SLOTS
+    //Conección de señales a SLOTS
     connect(timer,SIGNAL(timeout()),this,SLOT(actualizar()));
 
     connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(contarTiempo()));
-    connect(timer,SIGNAL(timeout()),this,SLOT(on_Puntaje_overflow()));
+    connect(tiempoJuego,SIGNAL(timeout()),this,SLOT(on_Puntaje_overflow()));
 
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(avionesAzar()));
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(pajarosAzar()));
@@ -47,7 +49,7 @@ Juego::Juego(QWidget *parent) :
     connect(tiempoObjetos,SIGNAL(timeout()),this,SLOT(trampolinAzar()));
 
     //Asignando condiciones iniciales al personaje
-    inicial();
+    inicialperson();
 
     //controla la imagen del personaje
     jugador2=false;
@@ -201,7 +203,7 @@ void Juego::contarTiempo()
     ui->lcdSeg->display(seg);
 }
 
-void Juego::inicial()
+void Juego::inicialperson()
 {
     personx=60;
     persony=400;
@@ -227,7 +229,7 @@ void Juego::reiniciar()
     scene->setSceneRect(80,40,1000,500);
 
     //Asignando condiciones iniciales al personaje
-    inicial();
+    inicialperson();
     multijugador();
 }
 
@@ -534,15 +536,21 @@ void Juego::avionesAzar(void)
     float py=0,vx=0;
     py=rand() % 1400+500;
     vx=rand() % 200+10;
+
     if(aviones.length()<numAviones){
         aviones.append(new itemgraf(person->getpersonaje()->getPx()+1000,py));
         aviones.last()->avion();
         aviones.last()->getItem()->setVel(vx,0);
         scene->addItem(aviones.last());
     }
-    else{
-        scene->removeItem(aviones.front());
-        aviones.pop_front();
+//    else{
+//        scene->removeItem(aviones.front());
+//        aviones.pop_front();
+//    }
+
+    if(aviones.last()->getItem()->getPx() <=200){
+                scene->removeItem(aviones.front());
+                aviones.pop_front();
     }
 
 }
@@ -601,6 +609,7 @@ void Juego::murosAzar()
 {
     float px=0;
     px=rand() % 1000+500;
+
     if(muros.length()<numMuros){
         muros.append(new itemgraf(person->getpersonaje()->getPx()+px,60));
 //        muros.last()->setMuro(true);

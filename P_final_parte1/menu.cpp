@@ -31,7 +31,6 @@ void menu::on_Multijugador_clicked()
 {
     juego1->show();
     juego1->setDosjugadores(true);
-    qDebug("Hola");
     this->close();
 }
 
@@ -70,8 +69,6 @@ void menu::on_Cargar_clicked()
 //        cout << cargar.at(6).toInt() << endl;
 
         juego1->show();
-
-        //// FALTA MIRARLO BIEN
         juego1->setDosjugadores(false);
         this->close();
 

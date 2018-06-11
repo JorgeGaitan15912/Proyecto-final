@@ -43,9 +43,10 @@ private:
     float ax;
     float ay;
 
-    float vi;
-    float angulo;
-    float altura;
+////    float vi;
+////    float angulo;
+////    float altura;
+
 };
 
 #endif // PERSONAJE_H

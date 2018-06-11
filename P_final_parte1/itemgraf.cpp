@@ -9,15 +9,19 @@ itemgraf::itemgraf(float x, float y)
     setPos(x,y);
     imagenp=1;
     imagenCohe=1;
-//    perdio=false;
-//    Tmuro=false;
+
+////    perdio=false;
+////    Tmuro=false;
+
+    tiempoVuelo=new QTimer();
+    tiempoVuelo->start(1000*DT);
 }
 
 //Destructor
 itemgraf::~itemgraf()
 {
     delete obstaculo;
-    delete tiempoCohete;
+//    delete tiempoCohete;
     delete tiempoVuelo;
 }
 
@@ -56,29 +60,30 @@ void itemgraf::trampolin(){
 
 void itemgraf::moverpajaro()
 {
-    tiempoVuelo=new QTimer();
-    tiempoVuelo->start(1000*DT);
+//    tiempoVuelo=new QTimer();
+//    tiempoVuelo->start(1000*DT);
     connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::volar);
 }
 
 void itemgraf::moverCohete()
 {
-    tiempoCohete=new QTimer();
-    tiempoCohete->start(1000*DT);
-    connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
+//    tiempoCohete=new QTimer();
+//    tiempoCohete->start(1000*DT);
+//    connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
+    connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::propulsion);
 }
 
-//void itemgraf::setMuro(bool value)
-//{
-//    Tmuro = value;
-//    boundingRect();
-//}
+////void itemgraf::setMuro(bool value)
+////{
+////    Tmuro = value;
+////    boundingRect();
+////}
 
-//void itemgraf::setPerdio(bool value)
-//{
-//    perdio = value;
-//    boundingRect();
-//}
+////void itemgraf::setPerdio(bool value)
+////{
+////    perdio = value;
+////    boundingRect();
+////}
 
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -148,24 +153,24 @@ void itemgraf::volar()
 
 void itemgraf::propulsion()
 {
-    w=44;h=39;
-    if(imagenCohe==1){
 
+    if(imagenCohe==1){
+        w=39;h=19;
         pixmap.load(":/Imagenes videojuego_F/Cohete/C1.png");
        imagenCohe++;
       }
     else if(imagenCohe==2){
-
+        w=37;h=19;
         pixmap.load(":/Imagenes videojuego_F/Cohete/C2.png");
         imagenCohe++;
     }
     else if(imagenCohe==3){
-
+        w=44;h=39;
         pixmap.load(":/Imagenes videojuego_F/Cohete/C3.png");
         imagenCohe++;
     }
     else{
-
+        w=42;h=39;
         pixmap.load(":/Imagenes videojuego_F/Cohete/C4.png");
         imagenCohe=1;
     }
