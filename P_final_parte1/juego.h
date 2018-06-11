@@ -73,6 +73,7 @@ private slots:
 
     void actualizar();
     void contarTiempo(void);
+    void esperar(void);
 
     void avionesAzar(void);
     void pajarosAzar(void);
@@ -90,6 +91,7 @@ private:
     QTimer *timer;
     QTimer *tiempoJuego;
     QTimer *tiempoObjetos;
+    QTimer *Perdio;
 
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
@@ -107,8 +109,9 @@ private:
 
     bool dosjugadores;
     bool jugador2;
+    bool chocoMuro;
     int cont;
-////    int vidas;
+
 
     int numAviones;
     int numPajaros;

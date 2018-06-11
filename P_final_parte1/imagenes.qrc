@@ -101,5 +101,8 @@
         <file>Imagenes videojuego_F/Pajaro/P8.png</file>
         <file>Imagenes videojuego_F/Pajaro/P9.png</file>
         <file>Imagenes videojuego_F/Trampolin/Trampolin.png</file>
+        <file>Imagenes videojuego_F/Fondo/Puntajes.png</file>
+        <file>Imagenes videojuego_F/Fondo/Puntaje2.png</file>
+        <file>Imagenes videojuego_F/Fondo/Puntajes2.png</file>
     </qresource>
 </RCC>

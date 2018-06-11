@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Aviso</class>
+ <widget class="QWidget" name="Aviso">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>571</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>28</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Aviso</string>
+  </property>
+  <widget class="QLabel" name="fondo">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imagenes.qrc">:/Imagenes videojuego_F/Fondo/Puntajes.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Metros">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>131</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>28</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Tiempo">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>185</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Monedas">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>239</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Total">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>294</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Gana">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>402</y>
+     <width>210</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Personaje 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Metros_2">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>131</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>28</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Monedas_2">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>239</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Tiempo_2">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>185</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Total_2">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>294</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>123456789</string>
+   </property>
+  </widget>
+  <zorder>fondo</zorder>
+  <zorder>Metros</zorder>
+  <zorder>Tiempo</zorder>
+  <zorder>Monedas</zorder>
+  <zorder>Total</zorder>
+  <zorder>Metros_2</zorder>
+  <zorder>Monedas_2</zorder>
+  <zorder>Tiempo_2</zorder>
+  <zorder>Total_2</zorder>
+  <zorder>Gana</zorder>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -32,7 +32,8 @@ SOURCES += \
     itemgraf.cpp \
     jugabilidad.cpp \
     menu.cpp \
-    control_de_acceso.cpp
+    control_de_acceso.cpp \
+    aviso.cpp
 
 HEADERS += \
         juego.h \
@@ -42,12 +43,14 @@ HEADERS += \
     itemgraf.h \
     jugabilidad.h \
     menu.h \
-    control_de_acceso.h
+    control_de_acceso.h \
+    aviso.h
 
 FORMS += \
         juego.ui \
     menu.ui \
-    control_de_acceso.ui
+    control_de_acceso.ui \
+    aviso.ui
 
 RESOURCES += \
     imagenes.qrc

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Capuchos voladores</string>
   </property>
   <widget class="QPushButton" name="Individual">
    <property name="geometry">
