@@ -20,6 +20,7 @@
 #include "itemgraf.h"
 #include "item.h"
 #include "jugabilidad.h"
+#include "aviso.h"
 #include <iostream>
 
 using namespace std;
@@ -118,6 +119,8 @@ private:
     int numMuros;
     int numCohetes;
     int numTrampolines;
+
+    Aviso *avisoP;
 
     void ScenePerson(Personaje*b);
     void colisiones(Persongraf *a);

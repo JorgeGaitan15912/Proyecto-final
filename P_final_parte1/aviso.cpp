@@ -167,13 +167,13 @@ void Aviso::darvalores()
         dato=dato.remove(0,n+1);
     }
 
-    //        cout << cargar.at(0).toFloat() << endl;
-    //        cout << cargar.at(1).toFloat() << endl;
-    //        cout << cargar.at(2).toFloat() << endl;
-    //        cout << cargar.at(3).toFloat() << endl;
-    //        cout << cargar.at(4).toInt() << endl;
-    //        cout << cargar.at(5).toInt() << endl;
-    //        cout << cargar.at(6).toInt() << endl;
+            cout << valores.at(0).toFloat() << endl;
+            cout << valores.at(1).toFloat() << endl;
+            cout << valores.at(2).toFloat() << endl;
+            cout << valores.at(3).toFloat() << endl;
+            cout << valores.at(4).toInt() << endl;
+            cout << valores.at(5).toInt() << endl;
+            cout << valores.at(6).toInt() << endl;
 
     if(op==1){
         //Capucho

@@ -9,6 +9,7 @@ Juego::Juego(QWidget *parent) :
 
 {
     ui->setupUi(this);
+    avisoP = new Aviso();
 
     //Fondo del graphicsView
     QPixmap mapa;
@@ -436,6 +437,12 @@ void Juego::colisiones(Persongraf *a)
             timer->stop();
             tiempoJuego->stop();
             tiempoObjetos->stop();
+
+            avisoP->op=1;
+            avisoP->imagenes();
+            avisoP->show();
+            this->close();
+
 
         }
 
