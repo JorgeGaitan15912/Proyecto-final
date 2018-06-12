@@ -9,20 +9,17 @@ itemgraf::itemgraf(float x, float y)
     setPos(x,y);
     imagenp=1;
     imagenCohe=1;
+    imagenMoneda=1;
 
-////    perdio=false;
-////    Tmuro=false;
-
-    tiempoVuelo=new QTimer();
-    tiempoVuelo->start(1000*DT);
+    animaciones=new QTimer();
+    animaciones->start(1000*DT);
 }
 
 //Destructor
 itemgraf::~itemgraf()
 {
     delete obstaculo;
-//    delete tiempoCohete;
-    delete tiempoVuelo;
+    delete animaciones;
 }
 
 //Métodos -> get, set
@@ -58,32 +55,21 @@ void itemgraf::trampolin(){
     pixmap.load(":/Imagenes videojuego_F/Trampolin/Trampolin.png");
 }
 
+//Conecciones del timer con los slots
+void itemgraf::moneda()
+{
+    connect(animaciones,&QTimer::timeout,this,&itemgraf::mover);
+}
+
 void itemgraf::moverpajaro()
 {
-//    tiempoVuelo=new QTimer();
-//    tiempoVuelo->start(1000*DT);
-    connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::volar);
+    connect(animaciones,&QTimer::timeout,this,&itemgraf::volar);
 }
 
 void itemgraf::moverCohete()
 {
-//    tiempoCohete=new QTimer();
-//    tiempoCohete->start(1000*DT);
-//    connect(tiempoCohete,&QTimer::timeout,this,&itemgraf::propulsion);
-    connect(tiempoVuelo,&QTimer::timeout,this,&itemgraf::propulsion);
+    connect(animaciones,&QTimer::timeout,this,&itemgraf::propulsion);
 }
-
-////void itemgraf::setMuro(bool value)
-////{
-////    Tmuro = value;
-////    boundingRect();
-////}
-
-////void itemgraf::setPerdio(bool value)
-////{
-////    perdio = value;
-////    boundingRect();
-////}
 
 void itemgraf::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -96,7 +82,6 @@ void itemgraf::actualizar(float dt)
 {
     obstaculo->actualizar(dt);
     setPos(obstaculo->getPx(),obstaculo->getPy());
-    //aca el actualizar de la item(la fisica)
 }
 
 //Animaciones
@@ -173,6 +158,30 @@ void itemgraf::propulsion()
         w=42;h=39;
         pixmap.load(":/Imagenes videojuego_F/Cohete/C4.png");
         imagenCohe=1;
+    }
+}
+
+void itemgraf::mover()
+{
+    if(imagenMoneda==1){
+        w=20; h=20;
+        pixmap.load(":/Imagenes videojuego_F/Extras/Monedas/M1.png");
+       imagenMoneda++;
+      }
+    else if(imagenCohe==2){
+      w=12; h=20;
+        pixmap.load(":/Imagenes videojuego_F/Extras/Monedas/M2.png");;
+        imagenMoneda++;
+    }
+    else if(imagenMoneda==3){
+       w=5; h=20;
+        pixmap.load(":/Imagenes videojuego_F/Extras/Monedas/M3.png");
+        imagenMoneda++;
+    }
+    else{
+        w=12; h=20;
+        pixmap.load(":/Imagenes videojuego_F/Extras/Monedas/M4.png");
+        imagenMoneda=1;
     }
 }
 

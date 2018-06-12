@@ -32,9 +32,6 @@
    <property name="text">
     <string/>
    </property>
-   <property name="pixmap">
-    <pixmap resource="imagenes.qrc">:/Imagenes videojuego_F/Fondo/Puntajes.png</pixmap>
-   </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
@@ -167,18 +164,16 @@
    </property>
   </widget>
   <zorder>fondo</zorder>
-  <zorder>Metros</zorder>
   <zorder>Tiempo</zorder>
-  <zorder>Monedas</zorder>
-  <zorder>Total</zorder>
-  <zorder>Metros_2</zorder>
   <zorder>Monedas_2</zorder>
-  <zorder>Tiempo_2</zorder>
+  <zorder>Monedas</zorder>
   <zorder>Total_2</zorder>
+  <zorder>Total</zorder>
+  <zorder>Tiempo_2</zorder>
   <zorder>Gana</zorder>
+  <zorder>Metros</zorder>
+  <zorder>Metros_2</zorder>
  </widget>
- <resources>
-  <include location="imagenes.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

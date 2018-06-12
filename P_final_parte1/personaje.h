@@ -1,7 +1,12 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
+
+//Librerías
 #include <math.h>
 #include <QTimer>
+#include <iostream>
+
+using namespace std;
 
 //Parte fisica de los items
 class Personaje
@@ -42,10 +47,6 @@ private:
 
     float ax;
     float ay;
-
-////    float vi;
-////    float angulo;
-////    float altura;
 
 };
 

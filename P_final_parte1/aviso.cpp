@@ -1,21 +1,21 @@
 #include "aviso.h"
 #include "ui_aviso.h"
 
-Aviso::Aviso(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Aviso)
+//Constructor
+Aviso::Aviso(QWidget *parent) : QWidget(parent),ui(new Ui::Aviso)
 {
     ui->setupUi(this);
 }
 
+//Destructor
 Aviso::~Aviso()
-{
-    delete ui;
-}
+{delete ui;}
 
+//Métodos
 void Aviso::imagenes()
 {
     if(op==1){
+        mostrar();
         ocultar();
         reorganizar();
         darvalores();
@@ -23,7 +23,8 @@ void Aviso::imagenes()
         ui->fondo->setPixmap(Imag);
     }
 
-    if(op==2){
+    else if(op==2){
+        mostrar();
         ocultar();
         reorganizar();
         darvalores();
@@ -31,7 +32,8 @@ void Aviso::imagenes()
         ui->fondo->setPixmap(Imag);
     }
 
-    if(op==3){
+    else if(op==3){
+        mostrar();
         ocultar();
         reorganizar();
         darvalores();
@@ -39,7 +41,8 @@ void Aviso::imagenes()
         ui->fondo->setPixmap(Imag);
     }
 
-    if(op==4){
+    else if(op==4){
+        mostrar();
         ocultar();
         reorganizar();
         darvalores();
@@ -47,7 +50,8 @@ void Aviso::imagenes()
         ui->fondo->setPixmap(Imag);
     }
 
-    if(op==5){
+   else if(op==5){
+        mostrar();
         ocultar();
         reorganizar();
         darvalores();
@@ -67,6 +71,7 @@ void Aviso::reorganizar()
     }
 
     if(op==2){
+        //Ninja
         ui->Metros_2->move(580,219);
         ui->Tiempo_2->move(590,274);
         ui->Monedas_2->move(620,327);
@@ -111,7 +116,7 @@ void Aviso::ocultar()
         ui->Gana->hide();
     }
 
-    if(op==2){
+   else if(op==2){
         ui->Metros->hide();
         ui->Tiempo->hide();;
         ui->Monedas->hide();
@@ -120,7 +125,10 @@ void Aviso::ocultar()
         ui->Gana->hide();
     }
 
-    if(op==4){
+    else if(op==3){}
+
+
+    else if(op==4){
         ui->Metros->hide();
         ui->Tiempo->hide();;
         ui->Monedas->hide();
@@ -133,7 +141,7 @@ void Aviso::ocultar()
         ui->Gana->hide();
     }
 
-    if(op==5){
+   else if (op==5){
         ui->Metros->hide();
         ui->Tiempo->hide();;
         ui->Monedas->hide();
@@ -147,6 +155,21 @@ void Aviso::ocultar()
 
     }
 
+}
+
+void Aviso::mostrar()
+{
+    ui->Metros->show();
+    ui->Tiempo->show();;
+    ui->Monedas->show();
+    ui->Total->show();
+
+    ui->Metros_2->show();
+    ui->Tiempo_2->show();;
+    ui->Monedas_2->show();
+    ui->Total_2->show();
+
+    ui->Gana->show();
 }
 
 void Aviso::darvalores()
@@ -166,54 +189,55 @@ void Aviso::darvalores()
         }
         dato=dato.remove(0,n+1);
     }
+    file.close();
 
-            cout << valores.at(0).toFloat() << endl;
-            cout << valores.at(1).toFloat() << endl;
-            cout << valores.at(2).toFloat() << endl;
-            cout << valores.at(3).toFloat() << endl;
-            cout << valores.at(4).toInt() << endl;
-            cout << valores.at(5).toInt() << endl;
-            cout << valores.at(6).toInt() << endl;
+    int metros=0, tiempo=0, monedas=0, total=0;
+
+    metros=valores.at(0).toFloat()/100;
+    tiempo= (valores.at(5).toInt()*60)+(valores.at(6).toInt());
+    monedas= valores.at(7).toInt();
+    total= valores.at(4).toInt() + (metros+tiempo)*(monedas+1);
 
     if(op==1){
         //Capucho
-        ui->Metros->setText(QString::number(valores.at(0).toFloat()));
-        ui->Tiempo->setText(QString::number(valores.at(0).toFloat()));
-        ui->Monedas->setText(QString::number(valores.at(0).toFloat()));
-        ui->Total->setText(QString::number(valores.at(0).toFloat()));
+        ui->Metros->setText(QString::number(metros));
+        ui->Tiempo->setText(QString::number(tiempo) + " s");
+        ui->Monedas->setText(QString::number(monedas));
+        ui->Total->setText(QString::number(total));
     }
 
-    if(op==2){
-        ui->Metros_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Tiempo_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Monedas_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Total_2->setText(QString::number(valores.at(0).toFloat()));
+    else if(op==2){
+
+        ui->Metros_2->setText(QString::number(metros));
+        ui->Tiempo_2->setText(QString::number(tiempo) + " s");
+        ui->Monedas_2->setText(QString::number(monedas));
+        ui->Total_2->setText(QString::number(total));
     }
 
-    if(op==3){
+    else if(op==3){
         //Capucho
-        ui->Metros->setText(QString::number(valores.at(0).toFloat()));
-        ui->Tiempo->setText(QString::number(valores.at(0).toFloat()));
-        ui->Monedas->setText(QString::number(valores.at(0).toFloat()));
-        ui->Total->setText(QString::number(valores.at(0).toFloat()));
+        ui->Metros->setText(QString::number(metros));
+        ui->Tiempo->setText(QString::number(tiempo) + " s");
+        ui->Monedas->setText(QString::number(monedas));
+        ui->Total->setText(QString::number(total));
 
         //Ninja
-        ui->Metros_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Tiempo_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Monedas_2->setText(QString::number(valores.at(0).toFloat()));
-        ui->Total_2->setText(QString::number(valores.at(0).toFloat()));
+        ui->Metros_2->setText(QString::number(metros));
+        ui->Tiempo_2->setText(QString::number(tiempo) + " s");
+        ui->Monedas_2->setText(QString::number(monedas));
+        ui->Total_2->setText(QString::number(total));
 
         //Comparar ambos puntajes
-        ui->Gana->setText(QString::number(valores.at(0).toFloat()));
+        ui->Gana->setText("Alguno");
     }
 
-    if(op==4){
+   else if(op==4){
         //Capucho
-        ui->Total->setText(QString::number(valores.at(0).toFloat()));
+        ui->Total->setText(QString::number(total));
     }
 
-    if(op==5){
+    else if(op==5){
         //Ninja
-        ui->Total_2->setText(QString::number(valores.at(0).toFloat()));
+        ui->Total_2->setText(QString::number(total));
     }
 }

@@ -30,7 +30,6 @@ SOURCES += \
     persongraf.cpp \
     item.cpp \
     itemgraf.cpp \
-    jugabilidad.cpp \
     menu.cpp \
     control_de_acceso.cpp \
     aviso.cpp
@@ -41,7 +40,6 @@ HEADERS += \
     persongraf.h \
     item.h \
     itemgraf.h \
-    jugabilidad.h \
     menu.h \
     control_de_acceso.h \
     aviso.h

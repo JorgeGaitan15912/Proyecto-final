@@ -13,7 +13,7 @@
 #define DT 0.1
 using namespace std;
 
-//Parte grafica de los items
+//Parte gráfica de los items
 class itemgraf : public QObject, public QGraphicsItem
 {
 
@@ -32,7 +32,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void actualizar(float dt);
 
-    //Obstaculos
+    //Obstáculos
     void avion();
     void muro();
 
@@ -40,6 +40,7 @@ public:
 
     //Bonus
     void trampolin();
+    void moneda();
 
     //Controlan las animaciones
     void moverpajaro();
@@ -47,16 +48,13 @@ public:
 
     int imagenp;
     int imagenCohe;
-
-////    bool perdio;
-////    bool Tmuro;
-////    void setPerdio(bool value);
-////    void setMuro(bool value);
+    int imagenMoneda;
 
 private slots:
     //Animaciones
     void volar();
     void propulsion();
+    void mover();
 
 private:
     //Atributos
@@ -65,8 +63,7 @@ private:
     QPixmap pixmap;
     item *obstaculo;
 
-    QTimer *tiempoVuelo; //CAMBIAR NOMBRE
-////    QTimer *tiempoCohete;
+    QTimer *animaciones;
 };
 
 #endif // ITEMGRAF_H

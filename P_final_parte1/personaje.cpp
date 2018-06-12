@@ -1,6 +1,4 @@
 #include "personaje.h"
-#include <iostream>
-using namespace std;
 
 //Parte fisica de los items
 
@@ -67,11 +65,6 @@ void Personaje::actualizar(float dt)
 
     px += Vx*dt + (1/2)*ax*pow(dt,2);
     py +=Vy*dt + (1/2)*ay*pow(dt,2);
-
-//    cout<<"posicion en y "<<py<<endl;
-//    cout<<"posicion en x "<<px<<endl;
-//    cout<<"velocidad en y "<<Vy<<endl;
-//    cout<<"velocidad en x "<<Vx<<endl;
 }
 
 

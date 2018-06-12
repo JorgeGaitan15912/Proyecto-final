@@ -9,22 +9,14 @@ Persongraf::Persongraf(float x, float y, float vx, float vy)
     imagenvolar=1;
     imagencorrer=1;
     imagenAturdido=1;
+    imagenSaltando=1;
 
     imagenvolar2=1;
     imagencorrer2=1;
     imagenAturdido2=1;
+    imagenSaltando=2;
 
-    tiempoVolar=new QTimer();
-
-////    tiempoCorrer=new QTimer();
-////    tiempobobo=new QTimer();
-
-////    tiempoVolar2=new QTimer();
-////    tiempoCorrer2=new QTimer();
-////    tiempobobo2=new QTimer();
-
-////    tiempoVolar= new QTimer (this);
-////    tiempoVolar->start(1000*DT);
+    animar=new QTimer();
 
 
     setPos(x,y);
@@ -34,14 +26,7 @@ Persongraf::Persongraf(float x, float y, float vx, float vy)
 Persongraf::~Persongraf()
 {
     delete capucho;
-    delete tiempoVolar;
-
-////    delete tiempoCorrer;
-////    delete tiempobobo;
-
-////    delete tiempoVolar2;
-////    delete tiempoCorrer2;
-////    delete tiempobobo2;
+    delete animar;
 }
 
 //Métodos -> get, set
@@ -67,80 +52,67 @@ void Persongraf::actualizar(float dt)
     //Aca el actualizar del personaje(parte fisica)
     capucho->actualizar(dt);
     setPos(capucho->getPx(),capucho->getPy());
-
-////    tiempovuelo->start(100);
-////    setPos(capucho->getPx()*escala,(v_lim-esf->getY())*escala);
 }
 
-void Persongraf::pararTiempos()
+void Persongraf::reconstruir()
 {
-    tiempoVolar->stop();
-    delete tiempoVolar;
-    tiempoVolar= new QTimer (this);
-    tiempoVolar->start(1000*DT);
-
-////    tiempobobo->stop();
-////    tiempoCorrer->stop();
-////    tiempobobo2->stop();
-////    tiempoCorrer2->stop();
-////    tiempoVolar2->stop();
+    animar->stop();
+    delete animar;
+    animar= new QTimer (this);
+    animar->start(1000*DT);
 }
 
+//coneccion del timer con los slots
 void Persongraf::volar()
 {
-    pararTiempos();
-////    tiempoVolar=new QTimer();
-////    tiempoVolar->start(1000*DT);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moverPer);
 }
 
 void Persongraf::correr()
 {
-    pararTiempos();
-////    tiempoCorrer=new QTimer();
-////    tiempoCorrer->start(1000*DT);
-////    connect(tiempoCorrer,&QTimer::timeout,this,&Persongraf::moviCorrer);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moviCorrer);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moviCorrer);
 }
 
 void Persongraf::aturdir()
 {
-    pararTiempos();
-////    tiempobobo=new QTimer();
-////    tiempobobo->start(1000*DT);
-////    connect(tiempobobo,&QTimer::timeout,this,&Persongraf::moviAturdido);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moviAturdido);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moviAturdido);
+}
+
+void Persongraf::saltar()
+{
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::movisaltar);
 }
 
 
 void Persongraf::volar2()
 {
-    pararTiempos();
-////    tiempoVolar2=new QTimer();
-////    tiempoVolar2->start(1000*DT);
-////    connect(tiempoVolar2,&QTimer::timeout,this,&Persongraf::moverPer2);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moverPer2);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moverPer2);
 }
 
 void Persongraf::correr2()
 {
-    pararTiempos();
-////    tiempoCorrer2=new QTimer();
-////    tiempoCorrer2->start(1000*DT);
-////    connect(tiempoCorrer2,&QTimer::timeout,this,&Persongraf::moviCorrer2);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moviCorrer2);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moviCorrer2);
 }
 
 void Persongraf::aturdir2()
 {
-    pararTiempos();
-////    tiempobobo2=new QTimer();
-////    tiempobobo2->start(1000*DT);
-////    connect(tiempobobo2,&QTimer::timeout,this,&Persongraf::moviAturdido2);
-    connect(tiempoVolar,&QTimer::timeout,this,&Persongraf::moviAturdido2);
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::moviAturdido2);
 }
 
+void Persongraf::saltar2()
+{
+    reconstruir();
+    connect(animar,&QTimer::timeout,this,&Persongraf::movisaltar2);
+}
 
+//Animaciones
 void Persongraf::moviCorrer()
 {
     w=62 ; h=65;
@@ -212,6 +184,55 @@ void Persongraf::moviAturdido()
         pixmap.load(":/Imagenes videojuego_F/Capucho/Aturdido/Aturdido3.png");
         imagenAturdido=1;
     }
+}
+
+void Persongraf::movisaltar()
+{
+     if(imagenSaltando==1){
+        w=38; h=63;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar1.png");
+        imagenSaltando++;
+       }
+     else if(imagenSaltando==2){
+         w=54; h=75;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar2.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==3){
+        w=51; h=57;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar3.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==4){
+         w=59; h=40;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar4.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==5){
+         w=40; h=59;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar5.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==6){
+        w=59; h=40;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar6.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==7){
+        w=51; h=57;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar7.png");
+         imagenSaltando++;
+     }
+     else if(imagenSaltando==8){
+         w=60; h=62;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar8.png");
+         imagenSaltando++;
+     }
+     else{
+           w=57; h=60;
+         pixmap.load(":/Imagenes videojuego_F/Capucho/Saltar/Saltar9.png");
+         imagenSaltando=1;
+     }
 }
 
 
@@ -286,5 +307,55 @@ void Persongraf::moviAturdido2()
         pixmap.load(":/Imagenes videojuego_F/Ninja/Aturdido/Aturdido3.png");
         imagenAturdido2=1;
     }
+}
+
+void Persongraf::movisaltar2()
+{
+    if(imagenSaltando2==1){
+       w=38; h=63;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar1.png");
+       imagenSaltando2++;
+      }
+    else if(imagenSaltando2==2){
+        w=54; h=75;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar2.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==3){
+       w=51; h=57;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar3.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==4){
+        w=59; h=40;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar4.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==5){
+        w=40; h=59;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar5.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==6){
+       w=59; h=40;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar6.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==7){
+       w=51; h=57;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar7.png");
+        imagenSaltando2++;
+    }
+    else if(imagenSaltando2==8){
+        w=60; h=62;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar8.png");
+        imagenSaltando2++;
+    }
+    else{
+          w=57; h=60;
+        pixmap.load(":/Imagenes videojuego_F/Ninja/Saltar/Saltar9.png");
+        imagenSaltando2=1;
+    }
+
 }
 

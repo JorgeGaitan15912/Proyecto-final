@@ -1,6 +1,7 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
+//Librerías
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QTimer>
@@ -10,6 +11,7 @@
 #include <QDebug>
 #include <QApplication>
 
+#include <fstream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -19,7 +21,6 @@
 #include "personaje.h"
 #include "itemgraf.h"
 #include "item.h"
-#include "jugabilidad.h"
 #include "aviso.h"
 #include <iostream>
 
@@ -73,12 +74,14 @@ private slots:
     void on_Reiniciar_clicked();
 
     void actualizar();
+    void saltando();
     void contarTiempo(void);
     void esperar(void);
 
     void avionesAzar(void);
     void pajarosAzar(void);
     void murosAzar(void);
+    void monedasAzar(void);
     void cohetesAzar(void);
     void trampolinAzar(void);
 
@@ -93,6 +96,7 @@ private:
     QTimer *tiempoJuego;
     QTimer *tiempoObjetos;
     QTimer *Perdio;
+    QTimer *tiempoSalto;
 
     QGraphicsScene *scene;
     QGraphicsLineItem *linea;
@@ -103,8 +107,8 @@ private:
     QList<itemgraf*> cohetes;
     QList<itemgraf*> muros;
     QList<itemgraf*> trampolines;
+    QList<itemgraf*> monedas;
 
-////QList <QString> cargar;
     Persongraf *person;
     itemgraf *gameOver;
 
@@ -119,6 +123,8 @@ private:
     int numMuros;
     int numCohetes;
     int numTrampolines;
+    int numMonedas;
+    int contadorMonedas;
 
     Aviso *avisoP;
 

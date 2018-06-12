@@ -1,6 +1,7 @@
 #ifndef PERSONGRAF_H
 #define PERSONGRAF_H
 
+//Librerías
 #include <QPainter>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
@@ -14,7 +15,6 @@ class Persongraf : public QObject, public QGraphicsItem
 public:
     //Constructores
     Persongraf(float x, float y, float vx, float vy);
-////    Persongraf(float x, float y, float r, float m);
 
     //Destructor
     ~Persongraf();
@@ -23,13 +23,7 @@ public:
     Personaje *getpersonaje();
 
     //Métodos simulación
-    QTimer *tiempoVolar; //CAMBIAR NOMBRE
-////    QTimer *tiempoCorrer;
-////    QTimer *tiempobobo;
-
-////    QTimer *tiempoVolar2;
-////    QTimer *tiempoCorrer2;
-////    QTimer *tiempobobo2;
+    QTimer *animar;
 
     QPixmap pixmap;
 
@@ -37,35 +31,40 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     void actualizar(float dt);
-    void pararTiempos(); //CAMBIAR NOMBRE
+    void reconstruir(); //CAMBIAR NOMBRE
 
-    //OPTIMIZAR
     int imagenvolar;
     int imagencorrer;
     int imagenAturdido;
+    int imagenSaltando;
 
     int imagenvolar2;
     int imagencorrer2;
     int imagenAturdido2;
+    int imagenSaltando2;
 
-    //OPTIMIZAR
     void volar();
     void correr();
     void aturdir();
+    void saltar();
 
     void volar2();
     void correr2();
     void aturdir2();
+    void saltar2();
 
 private slots:
+
     //Animaciones
     void moverPer();
     void moviCorrer();
     void moviAturdido();
+    void movisaltar();
 
     void moverPer2();
     void moviCorrer2();
     void moviAturdido2();
+    void movisaltar2();
 
 private:
     //Atributos

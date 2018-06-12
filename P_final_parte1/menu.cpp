@@ -2,9 +2,7 @@
 #include "ui_menu.h"
 
 //Constructores
-menu::menu(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::menu)
+menu::menu(QWidget *parent) : QWidget(parent), ui(new Ui::menu)
 {
     ui->setupUi(this);
     juego1 = new Juego();
@@ -36,15 +34,15 @@ void menu::on_Multijugador_clicked()
 
 void menu::on_Cargar_clicked()
 {
-        QString info;                       //String para leer los datos del archivo
+        QString info;
 
-        QFile file("Guardar.txt");           //Objeto para manejar la lectura del archivo
-        file.open(QIODevice::ReadOnly);     //Abre el archiv en modo lectura
+        QFile file("Guardar.txt");
+        file.open(QIODevice::ReadOnly);
         info=file.readLine();
 
         QList <QString> cargar;
         int n=0;
-        while(n>=0){      //Ciclo para guardar cada dato de la linea de texto en su posicion correspondiente en el arreglo vec
+        while(n>=0){
             n = info.indexOf("\t");
             if(n!=0){
                 cargar.append(info.left(n));
@@ -59,14 +57,6 @@ void menu::on_Cargar_clicked()
         juego1->puntaje=cargar.at(4).toInt();
         juego1->min=cargar.at(5).toInt();
         juego1->seg=cargar.at(6).toInt();
-
-//        cout << cargar.at(0).toFloat() << endl;
-//        cout << cargar.at(1).toFloat() << endl;
-//        cout << cargar.at(2).toFloat() << endl;
-//        cout << cargar.at(3).toFloat() << endl;
-//        cout << cargar.at(4).toInt() << endl;
-//        cout << cargar.at(5).toInt() << endl;
-//        cout << cargar.at(6).toInt() << endl;
 
         juego1->show();
         juego1->setDosjugadores(false);

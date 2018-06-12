@@ -1,12 +1,13 @@
 #ifndef CONTROL_DE_ACCESO_H
 #define CONTROL_DE_ACCESO_H
 
+//Librerías
 #include <QWidget>
 #include <QMainWindow>
-#include <iostream>
 #include <QPixmap>
 #include <QPushButton>
 #include <QTimer>
+#include <iostream>
 
 #include "menu.h"
 
@@ -21,9 +22,13 @@ class Control_de_acceso : public QWidget
     Q_OBJECT
 
 public:
+    //Constructor
     explicit Control_de_acceso(QWidget *parent = 0);
+
+    //Destructor
     ~Control_de_acceso();
 
+    //Atributos
     int correctas=0;
     int res=0;
     int preg=1;
@@ -32,6 +37,7 @@ public:
     QPixmap Imag_control;
     QTimer *fin;
 
+    //Métodos
     void control();
     void ocultar();
     void reordenar(int op1_y, int op2_y , int op3_y, int op4_y);

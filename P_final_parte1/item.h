@@ -1,6 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+//Librerías
 #include <math.h>
 
 //Parte fisica de los items

@@ -1,6 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
+//Librerías
 #include <QWidget>
 #include <QPushButton>
 #include "juego.h"

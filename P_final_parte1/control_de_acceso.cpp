@@ -1,10 +1,8 @@
 #include "control_de_acceso.h"
 #include "ui_control_de_acceso.h"
 
-
-Control_de_acceso::Control_de_acceso(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Control_de_acceso)
+//Constructor
+Control_de_acceso::Control_de_acceso(QWidget *parent) : QWidget(parent), ui(new Ui::Control_de_acceso)
 {
     ui->setupUi(this);
     menuI = new menu();
@@ -19,6 +17,7 @@ Control_de_acceso::Control_de_acceso(QWidget *parent) :
     connect(fin,SIGNAL(timeout()),this,SLOT(final()));
 }
 
+//Destructor
 Control_de_acceso::~Control_de_acceso()
 {
     delete ui;
@@ -26,17 +25,13 @@ Control_de_acceso::~Control_de_acceso()
     delete fin;
 }
 
+//Métodos
 void Control_de_acceso::reordenar(int op1_y, int op2_y , int op3_y, int op4_y)
 {
     ui->Op1->move(200,op1_y);
     ui->Op2->move(200,op2_y);
     ui->Op3->move(200,op3_y);
     ui->Op4->move(200,op4_y);
-
-//    ui->Op1->setCheckable(false);
-//    ui->Op2->setCheckable(false);
-//    ui->Op3->setCheckable(false);
-//    ui->Op4->setCheckable(false);
 }
 
 void Control_de_acceso::control()
@@ -97,7 +92,7 @@ void Control_de_acceso::control()
 
             total = QString::number(correctas);
             ui->Correctas->setText("Respondiste bien " + total + " preguntas");
-            cout << "Respondiste bien " << correctas << " preguntas, " << "puedes jugar" << endl;
+//            cout << "Respondiste bien " << correctas << " preguntas, " << "puedes jugar" << endl;
 
             OK=1;
             Imag_control.load(":/Imagenes videojuego_F/Control de acceso/Felicidades.png");
@@ -109,7 +104,7 @@ void Control_de_acceso::control()
 
             total = QString::number(4-correctas);
             ui->Correctas->setText("Respondiste mal " + total + " preguntas");
-            cout<< "Respondiste mal " << 4-correctas << " preguntas, vuelve a intentar" << endl;
+//            cout<< "Respondiste mal " << 4-correctas << " preguntas, vuelve a intentar" << endl;
 
             OK=0;
             Imag_control.load(":/Imagenes videojuego_F/Control de acceso/Fallaste.png");
